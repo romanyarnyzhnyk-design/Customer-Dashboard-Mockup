@@ -388,10 +388,10 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div id="orders-chart" style="display:none"></div>
     </div>
 
-    <div class="card view view-market" style="display:none">
+    <div class="card view view-sales">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <div style="display:flex;align-items:baseline;gap:10px">
-          <h3 style="margin:0">Market Opportunity insights</h3>
+          <h3 style="margin:0">High Level Market Opportunities</h3>
           <span id="map-mode" class="muted" style="font-size:11px">All product types &middot; MoM</span>
         </div>
         <div style="display:flex;align-items:center;gap:14px;font-size:11px;color:var(--text-2)">
@@ -743,14 +743,17 @@ function setView(v){
   document.querySelectorAll('.view').forEach(el=>{el.style.display = el.classList.contains('view-'+v)?'':'none';});
   if(window.kpiReady){
     renderKPIs();renderHiAlerts();
-    if(v==='sales'){renderPerf();renderOrders();renderActionLog();}
+    if(v==='sales'){renderPerf();renderOrders();renderActionLog();renderMap();}
     if(v==='g2n'){renderG2N();g2nSetMode(g2nMode);}
-    if(v==='market'){renderMap();}
   }
 }
 (function(){
   const items=document.querySelectorAll('.nav button[data-an]');
-  items.forEach(b=>b.onclick=()=>{items.forEach(x=>x.classList.toggle('an-active',x===b));setView(b.dataset.an);if(b.dataset.an==='market')showWIP();});
+  items.forEach(b=>b.onclick=()=>{
+    if(b.dataset.an==='market'){showWIP();return;}
+    items.forEach(x=>x.classList.toggle('an-active',x===b));
+    setView(b.dataset.an);
+  });
   document.querySelectorAll('#g2n-view button').forEach(b=>b.onclick=()=>g2nSetMode(b.dataset.g2nview));
 })();
 function showWIP(){document.getElementById('wipmodal').style.display='flex';}
