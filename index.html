@@ -226,6 +226,59 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
 .icard ul{margin:6px 0 0 18px;padding:0}
 .icard .gt{font-weight:700;color:var(--text)}
 .icard .close{float:right;border:none;background:var(--surface-2);border-radius:8px;width:30px;height:30px;cursor:pointer;color:var(--text-2);font-size:16px;line-height:1}
+.scbtn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-family:inherit;font-size:11.5px;font-weight:700;padding:6px 11px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.scbtn:hover{filter:brightness(1.06)}
+.scbtn.row{background:var(--blue-l);color:var(--navy);border-color:var(--blue-l);padding:3px 8px;font-size:10.5px}
+.sccard{background:#fff;border-radius:14px;max-width:880px;width:100%;max-height:88vh;overflow:auto;padding:20px 22px;box-shadow:0 24px 60px rgba(20,40,79,.3)}
+.sccard h2{color:var(--navy);font-size:17px;margin:0 0 2px}
+.scgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+.scfield{margin-bottom:11px}
+.scfield label{display:block;font-size:11px;color:var(--text-2);font-weight:600;margin-bottom:4px}
+.scfield input,.scfield select{width:100%;font-family:inherit;font-size:13px;border:1px solid var(--border-2);border-radius:8px;padding:7px 9px;background:#fff;color:var(--text)}
+.scfield .rng{display:flex;align-items:center;gap:10px}
+.scfield .rng input[type=range]{flex:1}
+.scfield .rngval{font-weight:700;color:var(--navy);font-size:13px;min-width:48px;text-align:right}
+.scctx{background:var(--surface-2);border-radius:10px;padding:10px 12px;font-size:11.5px;color:var(--text-2);line-height:1.5}
+.scctx b{color:var(--navy)}
+.scout{border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.scout .row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;font-size:12.5px;border-bottom:1px solid var(--border)}
+.scout .row:last-child{border-bottom:none}
+.scout .row .k{color:var(--text-2)}
+.scout .row .v{font-weight:700;color:var(--text)}
+.scout .row.head{background:var(--surface-3);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-2);font-weight:700}
+.scout .row.big{background:var(--blue-l)}
+.scout .row.big .v{color:var(--navy);font-size:15px}
+.screc{margin-top:14px;background:#eef6ef;border:1px solid #cfe6d2;border-radius:10px;padding:11px 13px;font-size:12.5px;color:#1f5130;line-height:1.5}
+.screc b{color:#13682f}
+.scwarn{background:#fdeeee;border-color:#f3cfcf;color:#7d2b2b}
+.scwarn b{color:#a52a2a}
+.schcard{background:#fff;border-radius:14px;max-width:760px;width:100%;max-height:88vh;overflow:auto;padding:20px 22px;box-shadow:0 24px 60px rgba(20,40,79,.3)}
+.schcard h2{color:var(--navy);font-size:17px;margin:0 0 2px}
+.sch-calhead{display:flex;align-items:center;justify-content:space-between;font-weight:700;color:var(--navy);font-size:13px;margin-bottom:6px}
+.sch-nav{border:1px solid var(--border-2);background:#fff;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:15px;color:var(--text-2);line-height:1}
+.sch-nav:hover{background:var(--surface-2)}
+.sch-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin-bottom:3px}
+.sch-dow span{text-align:center;font-size:9.5px;font-weight:700;color:var(--text-2);text-transform:uppercase;letter-spacing:.03em}
+.sch-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+.sch-d{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font-size:12px;border-radius:7px;cursor:pointer;color:var(--text);background:var(--surface-2)}
+.sch-d.empty{background:transparent;cursor:default}
+.sch-d:hover:not(.empty){background:var(--blue-l)}
+.sch-d.sel{background:var(--blue);color:#fff;font-weight:700}
+.sch-d.today{outline:2px solid var(--blue);outline-offset:-2px}
+.sch-d.past{color:var(--text-2);opacity:.5}
+.sch-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.sch-field{flex:1;min-width:120px}
+.sch-field label{display:block;font-size:11px;color:var(--text-2);font-weight:600;margin-bottom:4px}
+.sch-field select,.sch-field input,.sch-field textarea{width:100%;font-family:inherit;font-size:12.5px;border:1px solid var(--border-2);border-radius:8px;padding:7px 9px;background:#fff;color:var(--text)}
+.sch-list{max-height:148px;overflow:auto;border:1px solid var(--border);border-radius:10px;margin-top:6px}
+.sch-item{display:block;width:100%;text-align:left;border:none;border-bottom:1px solid var(--border);background:#fff;padding:8px 11px;font-family:inherit;font-size:12px;color:var(--text);cursor:pointer}
+.sch-item:last-child{border-bottom:none}
+.sch-item:hover{background:var(--surface-2)}
+.sch-item.sel{background:var(--blue-l);font-weight:600;color:var(--navy)}
+.sch-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.sch-save{flex:1;min-width:210px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-family:inherit;font-size:12.5px;font-weight:700;padding:10px 12px;border-radius:9px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px}
+.sch-save.alt{background:#fff;color:var(--navy)}
+.sch-save:hover{filter:brightness(1.05)}
 .agent{position:fixed;top:0;right:0;height:100%;width:344px;max-width:92vw;background:var(--surface);border-left:1px solid var(--border);box-shadow:-12px 0 40px rgba(20,40,79,.16);transform:translateX(100%);transition:transform .25s;z-index:220;display:flex;flex-direction:column}
 .agent.open{transform:none}
 .agent .ah{display:flex;align-items:center;gap:9px;padding:13px 15px;border-bottom:1px solid var(--border);background:var(--navy);color:#fff}
@@ -297,7 +350,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
     </div>
     <button class="tipbtn" onclick="openDownloadModal('action')"><i class="ti ti-list-check" style="color:var(--purple)"></i> <span>Sales Plan Action Log</span>
       <span class="tip">Make your priority list for accounts or products where sell-in acceleration is critical for the month sales plan delivery.</span></button>
-    <button class="tipbtn" onclick="openDownloadModal('g2n')"><i class="ti ti-alert-triangle" style="color:var(--orange)"></i> <span>G2N risks and opportunities</span>
+    <button class="tipbtn" onclick="openDownloadModal('g2n')"><i class="ti ti-alert-triangle" style="color:var(--orange)"></i> <span>G2N Plan Action Log</span>
       <span class="tip">Identify and prioritize accounts or products where profit health requires immediate attention.</span></button>
   </nav>
 
@@ -308,7 +361,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div class="card hialerts"><div class="rh"><h3>Key alerts</h3></div><div id="hialerts"></div></div>
     </div>
 
-    <div class="card">
+    <div class="card view view-sales">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <div style="display:flex;align-items:baseline;gap:10px">
           <h3 id="perf-h" style="margin:0">Performance tracking analytics</h3>
@@ -323,7 +376,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div id="perf-chart" style="display:none"></div>
     </div>
 
-    <div class="card">
+    <div class="card view view-sales">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <div style="display:flex;align-items:baseline;gap:10px">
           <h3 style="margin:0">Open orders details</h3>
@@ -335,7 +388,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div id="orders-chart" style="display:none"></div>
     </div>
 
-    <div class="card">
+    <div class="card view view-market" style="display:none">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
         <div style="display:flex;align-items:baseline;gap:10px">
           <h3 style="margin:0">Market Opportunity insights</h3>
@@ -353,7 +406,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div class="muted" style="font-size:10.5px;margin-top:8px">Bubble size scales with USD value; value shown at relative market price (SYN price &minus;20%). Modelled regional signals.</div>
     </div>
 
-    <div class="card">
+    <div class="card view view-sales">
       <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
         <h3 style="margin:0">Sales Plan Action Log</h3>
         <span class="muted" style="font-size:11px">AI recommendations &middot; executive summary</span>
@@ -361,9 +414,24 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
       <div id="actionlog"></div>
     </div>
 
-    <div class="card">
+    <div class="card view view-g2n" style="display:none">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div style="display:flex;align-items:baseline;gap:10px">
+          <h3 style="margin:0">Gross-to-Net analysis</h3>
+          <span id="g2n-mode" class="muted" style="font-size:11px">By account / product &middot; vs plan, YoY &amp; % gap</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button class="scbtn" onclick="openScenario()"><i class="ti ti-bolt"></i> Build scenario</button>
+          <div class="toggle" id="g2n-view"><button class="on" data-g2nview="table">Table</button><button data-g2nview="waterfall">Waterfall</button></div>
+        </div>
+      </div>
+      <div class="tscroll" id="g2n-table-wrap"><table class="perf" id="g2n-table"></table></div>
+      <div id="g2n-waterfall" style="display:none"></div>
+    </div>
+
+    <div class="card view view-g2n" style="display:none">
       <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:8px">
-        <h3 style="margin:0">G2N health &amp; risk</h3>
+        <h3 style="margin:0">G2N Plan Action Log</h3>
         <span class="muted" style="font-size:11px">Net-price leakage, bad-debt &amp; underdelivery watch</span>
       </div>
       <div id="g2nlog"></div>
@@ -378,14 +446,22 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
     <div id="dlmsg" class="dlmsg"></div>
     <div class="dlbtns">
       <button class="dlbtn primary" onclick="exportPDF(dlType);closeDownloadModal();"><i class="ti ti-file-type-pdf"></i> Save as PDF</button>
-      <button class="dlbtn" onclick="exportICS(dlType);closeDownloadModal();"><i class="ti ti-calendar-plus"></i> Create Outlook tasks + reminders</button>
+      <button class="dlbtn" onclick="openSchedule(dlType);closeDownloadModal();"><i class="ti ti-calendar-plus"></i> Create Outlook tasks + reminders</button>
       <button class="dlbtn ghost" onclick="closeDownloadModal()">Cancel</button>
     </div>
-    <div class="dlnote">PDF opens a print-ready view (choose &ldquo;Save as PDF&rdquo; in the dialog). The Outlook option downloads an .ics with one reminder-tagged calendar task per recommendation.</div>
+    <div class="dlnote">PDF opens a print-ready view (choose &ldquo;Save as PDF&rdquo; in the dialog). The Outlook option opens a scheduler: pick a day, time and reminder for a customer/task from the action log, then save to your calendar or send an invite to a partner.</div>
   </div>
 </div>
 
 <div id="imodal" class="imodal" onclick="if(event.target===this)closeInfo()"><div id="icard" class="icard"></div></div>
+<div id="scmodal" class="imodal" onclick="if(event.target===this)closeScenario()"><div class="sccard" id="sccard"></div></div>
+<div id="schedmodal" class="imodal" onclick="if(event.target===this)closeSchedule()"><div class="schcard" id="schcard"></div></div>
+<div id="wipmodal" class="imodal" onclick="if(event.target===this)closeWIP()"><div class="icard" style="max-width:420px;text-align:center">
+  <div style="font-size:30px;color:var(--orange);margin-bottom:4px"><i class="ti ti-bulb"></i></div>
+  <h2 style="margin-bottom:8px">Work in progress</h2>
+  <p>Clicking <b>Market Opportunity Insights</b> will redirect you to the dedicated <b>Market Opportunity Dashboard</b>.</p>
+  <button class="scbtn" style="margin-top:14px" onclick="closeWIP()">Got it</button>
+</div></div>
 
 <div id="agent" class="agent">
   <div class="ah"><i class="ti ti-robot"></i><div><div class="nm">Your Personal Analytic Agent</div><div class="st">Answers from the current dashboard view</div></div><button class="x" onclick="toggleAgent(false)">&times;</button></div>
@@ -470,13 +546,23 @@ function crumb(){
     `<span class="x">·</span> ${document.getElementById('f-period').value}`;
   const t=document.getElementById('rail-territory'); if(t) t.textContent=document.getElementById('f-area').value;
   const wc=document.getElementById('wx-city'); if(wc && country!=='All countries') wc.textContent=country;
-  if(window.kpiReady){ renderKPIs(); renderPerf(); renderOrders(); renderMap(); renderActionLog(); renderG2N(); renderHiAlerts(); }
+  if(window.kpiReady){ renderKPIs(); renderPerf(); renderOrders(); renderMap(); renderActionLog(); renderG2N(); renderG2NWaterfall(); renderG2NTable(); renderHiAlerts(); }
 }
 initFilters();
 
 
-const KPIS=[["Sales","5.8","USDmn"],["Volume","120","L"],["Gross profit","2.4","USDmn"],["Open orders","0.8","USDmn"],["Inventory","20","L"],["Credit (limit)","0.5","USDmn"]];
-const METRICS=[["Sales","USDmn"],["Volume","L"],["Gross profit","USDmn"],["Open orders","USDmn"],["Inventory","L"],["Credit limit","USDmn"]];
+const KPIS=[["Net Sales","5.8","USDmn"],["Volume","120","L"],["Gross profit","2.4","USDmn"],["Open orders","0.8","USDmn"],["Inventory","20","L"],["Credit (limit)","0.5","USDmn"]];
+const METRICS=[["Net Sales","USDmn"],["Volume","L"],["Gross profit","USDmn"],["Open orders","USDmn"],["Inventory","L"],["Credit limit","USDmn"]];
+const G2NMETRICS=[
+  {name:'Gross Sales',unit:'USDmn',hi:true,pct:false},
+  {name:'Discounts',unit:'USDmn',hi:false,pct:false},
+  {name:'Discounts',unit:'%',hi:false,pct:true},
+  {name:'Rebates',unit:'USDmn',hi:false,pct:false},
+  {name:'Rebates',unit:'%',hi:false,pct:true},
+  {name:'Net Sales',unit:'USDmn',hi:true,pct:false},
+  {name:'Net-to-Gross',unit:'%',hi:true,pct:true},
+  {name:'Gross Margin',unit:'%',hi:true,pct:true}
+];
 const SUBS=["Today","Target","% gap","YoY","% gap YoY"];
 const CUSTS=[["Customer A",["Product X","Product Y","Product Z"]],["Customer B",["Product X","Product Y","Product Z"]]];
 const MONTHS=["Apr 26","May 26"];
@@ -522,37 +608,62 @@ function cells(metricIdx,seed){const d=gen(metricIdx,seed);const gap=d.target?d.
 /* KPIs (interactive — recomputed from the header filters) */
 const AREA_MULT={'All areas':1.0,West:0.27,North:0.33,South:0.23,East:0.17};
 const TYPE_MULT={'All product types':1.0,Fungicides:0.33,Herbicides:0.30,Insecticides:0.23,Biologicals:0.14};
+const MONTH_SPLIT=[0.04,0.05,0.09,0.13,0.14,0.12,0.09,0.08,0.07,0.07,0.06,0.06]; // Jan..Dec seasonality, sums to 1.0
+const MONTHS3=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 function ytdMonths(){const d=new Date();const dim=new Date(d.getFullYear(),d.getMonth()+1,0).getDate();return d.getMonth()+d.getDate()/dim;}
+function monthsCumFrac(){const d=new Date(),m=d.getMonth(),dim=new Date(d.getFullYear(),m+1,0).getDate();
+  let f=0;for(let i=0;i<m;i++)f+=MONTH_SPLIT[i];return f+MONTH_SPLIT[m]*(d.getDate()/dim);}
+function seasonFrac(p){            // share of the annual that the selected period represents
+  if(/YTD/i.test(p))return monthsCumFrac();
+  if(/EndYear/i.test(p))return 1;
+  if(/H1/i.test(p))return MONTH_SPLIT.slice(0,6).reduce((a,b)=>a+b,0);
+  if(/H2/i.test(p))return MONTH_SPLIT.slice(6).reduce((a,b)=>a+b,0);
+  const q=p.match(/Q([1-4])/i); if(q){const s=(+q[1]-1)*3;return MONTH_SPLIT.slice(s,s+3).reduce((a,b)=>a+b,0);}
+  const mi=MONTHS3.indexOf(p.slice(0,3)); if(mi>=0)return MONTH_SPLIT[mi];
+  return 1/12;
+}
 function periodFactor(p){if(/YTD/i.test(p))return ytdMonths();if(/EndYear/i.test(p))return 12;if(/H[12]/i.test(p))return 6;if(/Q[1-4]/i.test(p))return 3;return 1;}
-function effFactor(){return (window.kamMode==='month')?1:periodFactor(document.getElementById('f-period').value);}
+function effFactor(){return (window.kamMode==='month')?12*MONTH_SPLIT[new Date().getMonth()]:12*seasonFrac(document.getElementById('f-period').value);}
+function paceFrac(){return (window.kamMode==='month')?1:seasonFrac(document.getElementById('f-period').value);}
+function planShareNow(mode){return (mode==='month')?MONTH_SPLIT[new Date().getMonth()]:1;} // plan column basis: full-year (annual) or one month
+/* per-customer & per-product-type delivery pace vs the all-customers average (>1 = ahead) */
+const CUST_PACE={}; CUST_PACE[CUSTOMERS[0]]=1.12; CUST_PACE[CUSTOMERS[1]]=1.10; CUST_PACE[CUSTOMERS[2]]=1.05;
+function custPace(n){return CUST_PACE[n]!==undefined?CUST_PACE[n]:(0.86+0.12*hash(n+'pace'));}
+const TYPE_PACE={Fungicides:1.08,Herbicides:1.03,Insecticides:0.96,Biologicals:0.90};
+function typePace(t){return TYPE_PACE[t]!==undefined?TYPE_PACE[t]:1;}
 function shareOf(id,lo,hi){const e=document.getElementById(id);if(!e||!e.value)return 1;return lo+hash(e.value)*(hi-lo);}
 function fmtUSD(v){return v>=10?v.toFixed(0):v>=1?v.toFixed(1):v.toFixed(2);}
 function fmtL(v){return Math.round(v).toString();}
+function tableTotals(){
+  const sc=rowScaffold(), base=tblScopeBase(), ann=tblAnnualBase();
+  const selCust=document.getElementById('f-cust').value;
+  let totalSales;
+  if(selCust){ totalSales=base*custPace(selCust); }
+  else { const cw=weights(CUSTOMERS); totalSales=CUSTOMERS.reduce((a,c,i)=>a+base*cw[i]*custPace(c),0); }
+  return {totalSales, totalAnnual:ann, seed:'TOTAL'+sc.ptype};
+}
 function computeKPIs(){
   const area=document.getElementById('f-area').value, ptype=document.getElementById('f-ptype').value;
-  const period=document.getElementById('f-period').value, pf=effFactor();
+  const period=document.getElementById('f-period').value;
   const jit=s=>0.9+0.2*hash(area+ptype+period+s);
-  const scope=(AREA_MULT[area]||0.7)*(TYPE_MULT[ptype]||0.8)
-    *shareOf('f-country',0.45,0.75)*shareOf('f-pname',0.40,0.70)
-    *shareOf('f-cust',0.40,0.70)*shareOf('f-crop',0.50,0.80)*shareOf('f-rep',0.55,0.80);
   const bRand=k=>(hash(area+ptype+period+'PY'+k)-0.5)*0.24;   // ±12% random "betterness" vs PYTD
   const mkPY=(curr,hi,k,bF)=>{const b=(bF===undefined?bRand(k):bF);return hi?curr/(1+b):curr*(1+b);};
-  const netSales=33.3*pf*scope*jit('ns');
-  const cogs=netSales*(0.50+0.04*jit('cg'));                  // uplifted margin
-  const grossMargin=netSales-cogs;                            // ~46-50% of net
+  const {totalSales,totalAnnual,seed}=tableTotals(), mode=window.kamMode||'annual';
+  const tn=rowMetrics(totalSales,totalAnnual,seed,mode);       // linked to Performance table Total
+  const netSales=tn[0].today, grossMargin=tn[2].today;
   const leakage=8+5*jit('lk');                                // % (uplifted: lower leakage)
   const priceReal=100-leakage;                                // % (~87-92%)
   const creditUse=55+30*jit('cu');                            // % of limit
   const discUse=88+18*jit('du');                              // % of planned invoice discounts
   const rebAccr=80+25*jit('rb');                              // % of planned rebates
-  const planReal=Math.min(100,(pf/12)*(0.92+0.2*jit('prl'))*100); // %
+  const planReal=Math.min(100, tn[0].target? tn[0].today/tn[0].target*100 : 0); // YTD net / annual plan (matches table)
   const fcAcc=Math.min(99,85+12*jit('fa'));                   // %
   const velocity=1.1+1.5*jit('sv');                           // x
   const demandCov=((0.55+0.32*jit('dcs'))+(0.06+0.22*jit('dco')))*100; // (open + shipped) / sales plan × 100
   const C=(label,val,unit,curr,k,hi,popup,sub,bF)=>({label,val,unit,curr,py:mkPY(curr,hi,k,bF),hi,popup,sub});
   return [
-    C('Net Sales',fmtUSD(netSales),'USDmn',netSales,'ns',true,'Gross Sales - Discounts - Rebates - Returns',
-      {label:'Gross Margin',val:fmtUSD(grossMargin),unit:'USDmn',curr:grossMargin,py:mkPY(grossMargin,true,'gm',0.07+0.03*jit('gm2')),hi:true,popup:'Net Sales - COGS'},0.04+0.03*jit('ns2')),
+    {label:'Net Sales',val:fmtUSD(netSales),unit:'USDmn',curr:netSales,py:tn[0].cmp,hi:true,popup:'Gross Sales - Discounts - Rebates',
+      sub:{label:'Gross Margin',val:fmtUSD(grossMargin),unit:'USDmn',curr:grossMargin,py:tn[2].cmp,hi:true,popup:'Net Sales - COGS'}},
     C('Price Realization',priceReal.toFixed(1),'%',priceReal,'pr2',true,'Net Price / List Price × 100',null,0.05+0.03*jit('pr3')),
     C('Price Leakage',leakage.toFixed(1),'%',leakage,'lk',false,'(List Price - Net Price) / List Price × 100',null,0.06+0.04*jit('lk2')),
     C('Credit Limit Use',creditUse.toFixed(0),'%',creditUse,'cu',false,'Credit used / limit, in % vs planned / accrued'),
@@ -566,8 +677,35 @@ function computeKPIs(){
 }
 function kdelta(curr,py,hi){const raw=py?(curr-py)/py:0;const better=hi?raw>=0:raw<=0;const mag=Math.abs(raw)*100;
   return {cls:better?'up':'down',html:`<span class="kpi-delta ${better?'up':'down'}" title="vs prior-year YTD">${better?'▲':'▼'} ${mag.toFixed(1)}% PY</span>`};}
+function computeG2NKPIs(){
+  const area=document.getElementById('f-area').value, ptype=document.getElementById('f-ptype').value;
+  const period=document.getElementById('f-period').value;
+  const jit=s=>0.9+0.2*hash(area+ptype+period+s);
+  const bRand=k=>(hash(area+ptype+period+'PY'+k)-0.5)*0.24;
+  const mkPY=(curr,hi,k,bF)=>{const b=(bF===undefined?bRand(k):bF);return hi?curr/(1+b):curr*(1+b);};
+  const C=(label,val,unit,curr,k,hi,popup,sub,bF)=>({label,val,unit,curr,py:mkPY(curr,hi,k,bF),hi,popup,sub});
+  const {totalSales,totalAnnual,seed}=tableTotals(), mode=window.kamMode||'annual';
+  const tm=g2nMetricsFromSales(totalSales,totalAnnual,seed,mode);  // linked to G2N table Total
+  const gross=tm[0].today, disc=tm[1].today, discR=tm[2].today, reb=tm[3].today, rebR=tm[4].today, net=tm[5].today, n2g=tm[6].today, gmPct=tm[7].today;
+  const ded=gross-net;
+  const dedR=ded/gross*100, margin=net*gmPct/100;
+  const rebAccr=80+25*jit('rb'), creditUse=55+30*jit('cu');
+  return [
+    {label:'Net Sales',val:fmtUSD(net),unit:'USDmn',curr:net,py:tm[5].cmp,hi:true,popup:'Gross Sales - Discounts - Rebates',
+      sub:{label:'Gross Sales',val:fmtUSD(gross),unit:'USDmn',curr:gross,py:tm[0].cmp,hi:true,popup:'List price × volume, before deductions'}},
+    {label:'Gross Margin %',val:gmPct.toFixed(1),unit:'%',curr:gmPct,py:tm[7].cmp,hi:true,popup:'Gross Margin / Net Sales × 100'},
+    {label:'Net-to-Gross',val:n2g.toFixed(1),unit:'%',curr:n2g,py:tm[6].cmp,hi:true,popup:'Net Sales / Gross Sales × 100'},
+    C('Total Deductions',dedR.toFixed(1),'%',dedR,'ded',false,'(Discounts + Rebates) / Gross Sales × 100',null,0.05+0.03*jit('ded2')),
+    {label:'Discount Rate',val:discR.toFixed(1),unit:'%',curr:discR,py:tm[2].cmp,hi:false,popup:'Invoice discounts / Gross Sales × 100'},
+    {label:'Rebate Rate',val:rebR.toFixed(1),unit:'%',curr:rebR,py:tm[4].cmp,hi:false,popup:'Rebates / Gross Sales × 100',
+      sub:{label:'Rebate accrual vs plan',val:rebAccr.toFixed(0),unit:'%',curr:rebAccr,py:mkPY(rebAccr,false,'rb'),hi:false,popup:'Rebates accrued vs planned'}},
+    C('Bad-debt Exposure',creditUse.toFixed(0),'%',creditUse,'cu',false,'Open receivables at risk / credit limit × 100'),
+    {label:'Gross Margin',val:fmtUSD(margin),unit:'USDmn',curr:margin,py:mkPY(margin,true,'gm'),hi:true,popup:'Net Sales - COGS'}
+  ];
+}
 function renderKPIs(){
-  document.getElementById('kpis').innerHTML=computeKPIs().map(c=>{
+  const list=(window.curView==='g2n')?computeG2NKPIs():computeKPIs();
+  document.getElementById('kpis').innerHTML=list.map(c=>{
     const d=kdelta(c.curr,c.py,c.hi);
     let sub='';
     if(c.sub){const sd=kdelta(c.sub.curr,c.sub.py,c.sub.hi);
@@ -584,73 +722,101 @@ window.kpiReady=true; renderKPIs();
   function apply(mode){
     segs.forEach(s=>s.classList.toggle('on',s.dataset.mode===mode));
     if(cap) cap.textContent = mode==='annual' ? 'YTD vs Annual Plan' : 'Current MTD vs Month Plan';
-    window.kamMode=mode; if(window.kpiReady){ renderKPIs(); renderPerf(); renderOrders(); renderMap(); renderActionLog(); renderG2N(); renderHiAlerts(); }
+    window.kamMode=mode; if(window.kpiReady){ renderKPIs(); renderPerf(); renderOrders(); renderMap(); renderActionLog(); renderG2N(); renderG2NWaterfall(); renderG2NTable(); renderHiAlerts(); }
   }
   segs.forEach(s=>s.onclick=()=>apply(s.dataset.mode));
   apply('annual');
 })();
 
-/* OPEN ANALYTICS active highlight */
+/* OPEN ANALYTICS — switch views */
+let g2nMode='table';
+function g2nSetMode(m){
+  g2nMode=m;
+  document.getElementById('g2n-table-wrap').style.display=(m==='table')?'':'none';
+  document.getElementById('g2n-waterfall').style.display=(m==='waterfall')?'':'none';
+  document.getElementById('g2n-mode').textContent=(m==='table')?'By account / product · vs plan, YoY & % gap':'Gross Sales to Gross Margin · USDmn';
+  document.querySelectorAll('#g2n-view button').forEach(x=>x.classList.toggle('on',x.dataset.g2nview===m));
+  if(window.kpiReady){ if(m==='table')renderG2NTable(); else renderG2NWaterfall(); }
+}
+function setView(v){
+  window.curView=v;
+  document.querySelectorAll('.view').forEach(el=>{el.style.display = el.classList.contains('view-'+v)?'':'none';});
+  if(window.kpiReady){
+    renderKPIs();renderHiAlerts();
+    if(v==='sales'){renderPerf();renderOrders();renderActionLog();}
+    if(v==='g2n'){renderG2N();g2nSetMode(g2nMode);}
+    if(v==='market'){renderMap();}
+  }
+}
 (function(){
   const items=document.querySelectorAll('.nav button[data-an]');
-  items.forEach(b=>b.onclick=()=>{items.forEach(x=>x.classList.toggle('an-active',x===b));});
+  items.forEach(b=>b.onclick=()=>{items.forEach(x=>x.classList.toggle('an-active',x===b));setView(b.dataset.an);if(b.dataset.an==='market')showWIP();});
+  document.querySelectorAll('#g2n-view button').forEach(b=>b.onclick=()=>g2nSetMode(b.dataset.g2nview));
 })();
+function showWIP(){document.getElementById('wipmodal').style.display='flex';}
+function closeWIP(){document.getElementById('wipmodal').style.display='none';}
 
 /* Perf table — filter-driven (geography, customer, crop, product type/name, period, mode) */
-function tblScopeBase(){
-  const area=document.getElementById('f-area').value, ptype=document.getElementById('f-ptype').value;
-  return 33.3*effFactor()*(AREA_MULT[area]||0.7)*shareOf('f-country',0.45,0.75)*(TYPE_MULT[ptype]||0.8)
-        *shareOf('f-pname',0.40,0.70)*shareOf('f-crop',0.50,0.80);
-}
+function scopeMul(){const area=document.getElementById('f-area').value, ptype=document.getElementById('f-ptype').value;
+  return (AREA_MULT[area]||0.7)*shareOf('f-country',0.45,0.75)*(TYPE_MULT[ptype]||0.8)
+        *shareOf('f-pname',0.40,0.70)*shareOf('f-crop',0.50,0.80);}
+function tblScopeBase(){return 33.3*effFactor()*scopeMul();}   // period (seasonal) delivered total
+function tblAnnualBase(){return 33.3*12*scopeMul();}           // full-year total (for plan)
 function weights(list){const w=list.map(c=>0.55+hash(c));const s=w.reduce((a,b)=>a+b,0)||1;return w.map(x=>x/s);}
 function metricsFromSales(sales,seed){const j=s=>0.9+0.2*hash(seed+s);
   const volume=sales*20.7*j('v'),gp=sales*0.41*j('g'),open=sales*0.14*j('o'),inv=volume*0.166*j('i'),credit=sales*0.086*j('c');
   return [sales,volume,gp,open,inv,credit];}
 function fmtVal(mi,v){return (mi===1||mi===4)?Math.round(v).toString():(v>=10?v.toFixed(1):v.toFixed(2));}
-function cellSet(mi,today,target,cmp){const gap=target?today/target-1:0,cg=cmp?today/cmp-1:0;
-  const pc=v=>`<td class="${v>=0?'pos':'neg'}">${v>=0?'+':''}${Math.round(v*100)}%</td>`;
-  return `<td>${fmtVal(mi,today)}</td><td>${fmtVal(mi,target)}</td>${pc(gap)}<td>${fmtVal(mi,cmp)}</td>${pc(cg)}`;}
-/* shared row scaffold — supports a product-type aggregation level */
+function cellSet(mi,today,target,cmp){const pace=paceFrac();
+  const gap=(target*pace)?today/(target*pace)-1:0, cg=cmp?today/cmp-1:0;
+  const tag=(v,b)=>`<td class="${b?'pos':'neg'}">${v>=0?'+':''}${Math.round(v*100)}%</td>`;
+  return `<td>${fmtVal(mi,today)}</td><td>${fmtVal(mi,target)}</td>${tag(gap,gap>=0)}<td>${fmtVal(mi,cmp)}</td>${tag(cg,cg>=0)}`;}
+/* shared row scaffold — each row carries delivered YTD (sales, seasonal + paced) and full-year base (annual) */
 function rowScaffold(){
   const selCust=document.getElementById('f-cust').value;
   const ptype=document.getElementById('f-ptype').value, selP=document.getElementById('f-pname').value;
-  const base=tblScopeBase();
+  const base=tblScopeBase(), ann=tblAnnualBase();        // period total / full-year total
   const allTypes = ptype==='All product types';
   let rows=[];
   if(selCust){
-    rows.push({label:selCust,kind:'account',seed:selCust+ptype,sales:base});
+    const cp=custPace(selCust);
+    rows.push({label:selCust,kind:'account',seed:selCust+ptype,sales:base*cp,annual:ann});
     if(selP){
-      rows.push({label:selP,kind:'product',seed:selCust+selP,sales:base});
+      rows.push({label:selP,kind:'product',seed:selCust+selP,sales:base*cp,annual:ann});
     } else if(allTypes){
-      Object.keys(PRODUCTS).forEach(t=>{const tS=base*TYPE_MULT[t];
-        rows.push({label:t,kind:'type',seed:selCust+t,sales:tS});
+      Object.keys(PRODUCTS).forEach(t=>{const tp=typePace(t);
+        rows.push({label:t,kind:'type',seed:selCust+t,sales:base*TYPE_MULT[t]*cp*tp,annual:ann*TYPE_MULT[t]});
         const pw=weights(PRODUCTS[t]);
-        PRODUCTS[t].forEach((p,i)=>rows.push({label:p,kind:'product',seed:selCust+p,sales:tS*pw[i]}));});
+        PRODUCTS[t].forEach((p,i)=>rows.push({label:p,kind:'product',seed:selCust+p,sales:base*TYPE_MULT[t]*pw[i]*cp*tp,annual:ann*TYPE_MULT[t]*pw[i]}));});
     } else {
-      const pw=weights(PRODUCTS[ptype]||[]);
-      (PRODUCTS[ptype]||[]).forEach((p,i)=>rows.push({label:p,kind:'product',seed:selCust+p,sales:base*pw[i]}));
+      const pw=weights(PRODUCTS[ptype]||[]), tp=typePace(ptype);
+      (PRODUCTS[ptype]||[]).forEach((p,i)=>rows.push({label:p,kind:'product',seed:selCust+p,sales:base*pw[i]*cp*tp,annual:ann*pw[i]}));
     }
-    return {rows, totalSales:null, typeRows:[], ptype};
+    return {rows, totalSales:null, totalAnnual:null, typeRows:[], ptype};
   }
   const cw=weights(CUSTOMERS);
-  CUSTOMERS.forEach((c,i)=>rows.push({label:c,kind:'account',seed:c+ptype,sales:base*cw[i]}));
-  const totalSales=rows.reduce((a,r)=>a+r.sales,0);
+  CUSTOMERS.forEach((c,i)=>rows.push({label:c,kind:'account',seed:c+ptype,sales:base*cw[i]*custPace(c),annual:ann*cw[i]}));
+  const totalSales=rows.reduce((a,r)=>a+r.sales,0), totalAnnual=ann;
   let typeRows=[];
-  if(allTypes) Object.keys(PRODUCTS).forEach(t=>typeRows.push({label:t,kind:'type',seed:'TYPE'+t,sales:base*TYPE_MULT[t]}));
-  return {rows, totalSales, typeRows, ptype};
+  if(allTypes) Object.keys(PRODUCTS).forEach(t=>typeRows.push({label:t,kind:'type',seed:'TYPE'+t,sales:base*TYPE_MULT[t]*typePace(t),annual:ann*TYPE_MULT[t]}));
+  return {rows, totalSales, totalAnnual, typeRows, ptype};
 }
-function rowMetrics(sales,seed,mode){
-  const tBand=mode==='annual'?0.30:0.22, tBase=mode==='annual'?0.88:0.93;
+function rowMetrics(sales,annual,seed,mode){
+  const today=metricsFromSales(sales,seed), ann=metricsFromSales(annual,seed);
+  const planShare=planShareNow(mode);
   const cmpBase=mode==='annual'?0.82:0.88, cmpBand=mode==='annual'?0.40:0.26, ck=mode==='annual'?'y':'m';
-  const vals=metricsFromSales(sales,seed);
-  return METRICS.map((m,mi)=>{const today=vals[mi];const target=today*(tBase+hash(seed+'t'+mi)*tBand);const cmp=today*(cmpBase+hash(seed+ck+mi)*cmpBand);return {today,target,cmp};});
+  return METRICS.map((m,mi)=>{
+    const planFactor=(mi===0)?1.0:(0.94+hash(seed+'t'+mi)*0.16);
+    const target=ann[mi]*planShare*planFactor;            // full-year (annual) / one-month (month) plan
+    const cmp=today[mi]*(cmpBase+hash(seed+ck+mi)*cmpBand);
+    return {today:today[mi],target,cmp};});
 }
 function perfRows(){
   const mode=window.kamMode||'annual';
   const sc=rowScaffold();
-  const rows=sc.rows.map(r=>({label:r.label,kind:r.kind,metrics:rowMetrics(r.sales,r.seed,mode)}));
-  const typeRows=sc.typeRows.map(r=>({label:r.label,kind:'type',metrics:rowMetrics(r.sales,r.seed,mode)}));
-  const total= sc.totalSales!=null ? {label:'Total',metrics:rowMetrics(sc.totalSales,'TOTAL'+sc.ptype,mode)} : null;
+  const rows=sc.rows.map(r=>({label:r.label,kind:r.kind,metrics:rowMetrics(r.sales,r.annual,r.seed,mode)}));
+  const typeRows=sc.typeRows.map(r=>({label:r.label,kind:'type',metrics:rowMetrics(r.sales,r.annual,r.seed,mode)}));
+  const total= sc.totalSales!=null ? {label:'Total',metrics:rowMetrics(sc.totalSales,sc.totalAnnual,'TOTAL'+sc.ptype,mode)} : null;
   return {rows,total,typeRows};
 }
 function rowClass(k){return k==='account'?'cust':k==='type'?'typ':'';}
@@ -702,7 +868,7 @@ function renderPerfChart(d){
     {label:'Channel inventory',color:'#1899a6',get:m=>m[4].today}
   ], fL);
   const c2=lineChart('Sales & gross profit vs credit used (USDmn)', src, [
-    {label:'Sales',color:'#1e3a73',get:m=>m[0].today},
+    {label:'Net Sales',color:'#1e3a73',get:m=>m[0].today},
     {label:'Gross profit',color:'#1a9e5e',get:m=>m[2].today},
     {label:'Credit used',color:'#e08a1e',get:m=>m[5].today}
   ], fU);
@@ -735,12 +901,14 @@ function renderPerf(){
 renderPerf();
 
 /* Open orders details table — same scaffold + slicer (Annual/Month) */
-function orderMetrics(sales,seed){
-  const vol=sales*20.7*(0.9+0.2*hash(seed+'v'));
-  const plan=sales*(0.95+0.12*hash(seed+'pl'));
-  const shipped=plan*(0.55+0.32*hash(seed+'sh'));
-  const open=plan*(0.06+0.22*hash(seed+'op'));
+function orderMetrics(salesYTD,annual,seed,mode){
+  const planShare=planShareNow(mode);
+  const shipped=salesYTD;                                  // delivered orders = Sales done (= Performance Net Sales)
+  const planFactor=0.94+hash(seed+'pl')*0.16;
+  const plan=annual*planShare*planFactor;                  // full-year (annual) / one-month (month) plan
+  const open=salesYTD*(0.10+0.18*hash(seed+'op'));         // open pipeline orders, not yet delivered (not counted as sales)
   const forecast=shipped+open;
+  const vol=salesYTD*20.7*(0.9+0.2*hash(seed+'v'));
   const inv=vol*0.166*(0.85+0.4*hash(seed+'iv'));
   const weeks=2+7*hash(seed+'wk');
   const base=plan*(0.96+0.08*hash(seed+'bs'));
@@ -749,12 +917,13 @@ function orderMetrics(sales,seed){
   return {plan,shipped,open,forecast,inv,weeks,base,up,down};
 }
 function ordersData(){
+  const mode=window.kamMode||'annual';
   const sc=rowScaffold();
-  const map=r=>({label:r.label,kind:r.kind,metrics:orderMetrics(r.sales,r.seed+'ord')});
+  const map=r=>({label:r.label,kind:r.kind,metrics:orderMetrics(r.sales,r.annual,r.seed+'ord',mode)});
   return {
     rows: sc.rows.map(map),
-    typeRows: sc.typeRows.map(r=>({label:r.label,kind:'type',metrics:orderMetrics(r.sales,r.seed+'ord')})),
-    total: sc.totalSales!=null ? {label:'Total',metrics:orderMetrics(sc.totalSales,'TOTALord'+sc.ptype)} : null
+    typeRows: sc.typeRows.map(r=>({label:r.label,kind:'type',metrics:orderMetrics(r.sales,r.annual,r.seed+'ord',mode)})),
+    total: sc.totalSales!=null ? {label:'Total',metrics:orderMetrics(sc.totalSales,sc.totalAnnual,'TOTALord'+sc.ptype,mode)} : null
   };
 }
 function renderOrdersTable(d){
@@ -766,10 +935,11 @@ function renderOrdersTable(d){
     ['Market insight (scenario)','USDmn',['Downside','Base','Upside']]
   ];
   const fU=v=>v>=10?v.toFixed(1):v.toFixed(2);
+  const pace=paceFrac();
   const pc=(v,good)=>`<td class="${v>=good?'pos':'neg'}">${Math.round(v*100)}%</td>`;
-  const cells=m=>`<td>${fU(m.shipped)}</td>`+pc(m.shipped/m.plan,0.7)
+  const cells=m=>`<td>${fU(m.shipped)}</td>`+pc(m.shipped/m.plan,pace*0.98)
       +`<td>${fU(m.open)}</td><td class="muted">${Math.round(m.open/m.plan*100)}%</td>`
-      +`<td>${fU(m.forecast)}</td>`+pc(m.forecast/m.plan,1.0)
+      +`<td>${fU(m.forecast)}</td>`+pc(m.forecast/m.plan,pace*1.05)
       +`<td>${Math.round(m.inv)}</td><td>${m.weeks.toFixed(1)}</td>`
       +`<td class="neg">${fU(m.down)}</td><td>${fU(m.base)}</td><td class="pos">${fU(m.up)}</td>`;
   let h='<thead><tr><th class="lbl" rowspan="2">Account / product type</th>';
@@ -853,6 +1023,25 @@ function buildAlerts(){
   return A;
 }
 function goTo(id){const t=document.getElementById(id);if(t)t.scrollIntoView({behavior:'smooth',block:'center'});}
+function buildG2NAlerts(){
+  const P=accountProfiles();
+  const leak=[...P].sort((a,b)=>a.g2n-b.g2n)[0];
+  const debt=[...P].sort((a,b)=>b.creditUtil-a.creditUtil)[0];
+  const under=[...P].sort((a,b)=>a.achiev-b.achiev)[0];
+  const best=[...P].sort((a,b)=>b.g2n-a.g2n)[0];
+  const dedRate=a=>0.12+0.10*hash(a.name+'ded');
+  const hiDed=[...P].sort((a,b)=>dedRate(b)-dedRate(a))[0];
+  const g=computeG2NKPIs(), byL=l=>g.find(x=>x.label===l);
+  const n2g=byL('Net-to-Gross'), n2gRaw=n2g.py?(n2g.curr-n2g.py)/n2g.py:0, reb=byL('Rebate Rate');
+  return [
+    ['ti-droplet','var(--neg)','G2N leakage',leak.name,`Net-to-gross ${Math.round(leak.g2n*100)}%, fastest erosion.`,'g2nlog'],
+    ['ti-credit-card','var(--neg)','Bad-debt watch',debt.name,`Credit exposure ${Math.round(debt.creditUtil*100)}% of sales.`,'g2nlog'],
+    ['ti-receipt','var(--orange)','Deep deductions',hiDed.name,`Net-to-gross ${((1-dedRate(hiDed))*100).toFixed(1)}%, deepest discounts + rebates.`,'g2n-table'],
+    ['ti-trending-down','var(--neg)','Underdelivery & accrual',under.name,`At ${Math.round(under.achiev*100)}% of plan; rebate accruals over-stated.`,'g2nlog'],
+    [n2gRaw>=0?'ti-trending-up':'ti-trending-down', n2gRaw>=0?'var(--pos)':'var(--neg)','Net-to-gross vs PYTD',(n2gRaw>=0?'+':'')+(n2gRaw*100).toFixed(1)+'% YoY',`Portfolio net-to-gross ${n2g.val}% · rebate rate ${reb.val}%.`,'kpis'],
+    ['ti-shield-check','var(--pos)','Best G2N practice',best.name,`Net-to-gross ${Math.round(best.g2n*100)}% with stable rebate use.`,'g2nlog']
+  ];
+}
 function renderAlerts(){
   const A=buildAlerts();
   document.getElementById('alerts').innerHTML=A.map(a=>`<div class="alert" data-go="${a[5]}" title="Open related section"><i class="ti ${a[0]}" style="color:${a[1]}"></i><div><div class="at">${a[2]}</div><div class="am">${a[3]}</div><div class="ac">${a[4]}</div></div></div>`).join('');
@@ -860,7 +1049,8 @@ function renderAlerts(){
 }
 function renderHiAlerts(){
   const rank=c=>c==='var(--neg)'?0:c==='var(--orange)'?1:2;
-  const A=buildAlerts().slice().sort((a,b)=>rank(a[1])-rank(b[1])).slice(0,6);
+  const src=(window.curView==='g2n')?buildG2NAlerts():buildAlerts();
+  const A=src.slice().sort((a,b)=>rank(a[1])-rank(b[1])).slice(0,6);
   document.getElementById('hialerts').innerHTML=A.map(a=>`<div class="halert" data-go="${a[5]}" title="${a[4]}"><i class="ti ${a[0]}" style="color:${a[1]}"></i><div><b>${a[2]}</b><div class="hn">${a[3]}</div></div></div>`).join('');
   document.querySelectorAll('#hialerts .halert').forEach(el=>el.onclick=()=>goTo(el.dataset.go));
 }
@@ -956,7 +1146,208 @@ function renderActionLog(){
     items.map(i=>alertCard([i.sev,i.icon,i.title,i.detail,i.action])).join('');
 }
 
+/* ===== G2N Plan vs Performance: waterfall + by-account table ===== */
+function renderG2NWaterfall(){
+  const k=computeKPIs(), net=k[0].curr, margin=k[0].sub.curr, cogs=net-margin;
+  const gross=net/0.845, ded=gross-net;
+  const disc=ded*0.60, reb=ded*0.40;
+  const steps=[
+    ['Gross Sales', gross, 'total'],
+    ['Discounts', -disc, 'down'],
+    ['Rebates', -reb, 'down'],
+    ['Net Sales', net, 'total'],
+    ['COGS', -cogs, 'down'],
+    ['Gross Margin', margin, 'total']
+  ];
+  const W=900,H=300,pl=46,pr=16,pt=18,pb=46,plotH=H-pt-pb,plotW=W-pl-pr;
+  const yMax=Math.ceil(gross/50)*50||gross;
+  const yY=v=>pt+plotH*(1-v/yMax);
+  const slot=plotW/steps.length, bw=slot*0.56;
+  let run=0,g='';
+  for(let i=0;i<=4;i++){const v=yMax*i/4,y=yY(v);g+=`<line x1="${pl}" y1="${y.toFixed(1)}" x2="${W-pr}" y2="${y.toFixed(1)}" stroke="#eef2f8"/><text x="${pl-6}" y="${(y+3).toFixed(1)}" font-size="10" fill="#9aa2b6" text-anchor="end">${Math.round(v)}</text>`;}
+  steps.forEach((s,i)=>{
+    const cx=pl+slot*(i+0.5), x=cx-bw/2;
+    let top,bot,fill;
+    if(s[2]==='total'){top=yY(s[1]);bot=yY(0);fill=(s[0]==='Gross Margin')?'#1a9e5e':'#1e3a73';run=s[1];}
+    else{const start=run;run=start+s[1];top=yY(Math.max(start,run));bot=yY(Math.min(start,run));fill=(s[0]==='COGS')?'#e08a1e':'#d8443b';
+      g+=`<line x1="${(cx-slot*0.5).toFixed(1)}" y1="${yY(start).toFixed(1)}" x2="${x.toFixed(1)}" y2="${yY(start).toFixed(1)}" stroke="#c3cee0" stroke-dasharray="3 3"/>`;}
+    const h=Math.max(2,bot-top);
+    g+=`<rect x="${x.toFixed(1)}" y="${top.toFixed(1)}" width="${bw.toFixed(1)}" height="${h.toFixed(1)}" rx="2" fill="${fill}"><title>${s[0]}: ${s[2]==='down'?'\u2212':''}${Math.abs(s[1]).toFixed(1)} USDmn</title></rect>`;
+    g+=`<text x="${cx.toFixed(1)}" y="${(top-5).toFixed(1)}" font-size="10.5" font-weight="700" fill="#1f2733" text-anchor="middle">${s[2]==='down'?'\u2212':''}${Math.abs(s[1]).toFixed(0)}</text>`;
+    g+=`<text x="${cx.toFixed(1)}" y="${(H-26).toFixed(1)}" font-size="10.5" fill="#5d667e" text-anchor="middle">${s[0]}</text>`;
+  });
+  const gmPct=margin/gross*100, n2g=net/gross*100;
+  document.getElementById('g2n-waterfall').innerHTML=
+    `<svg viewBox="0 0 ${W} ${H}" width="100%" style="max-height:320px"><text x="13" y="${pt+plotH/2}" font-size="10" fill="#9aa2b6" transform="rotate(-90 13 ${pt+plotH/2})" text-anchor="middle">USDmn</text>${g}</svg>`+
+    `<div class="muted" style="font-size:11px;margin-top:6px">Net-to-gross <b style="color:var(--navy)">${n2g.toFixed(1)}%</b> &middot; gross margin <b style="color:var(--navy)">${gmPct.toFixed(1)}%</b> of gross sales. Deductions split 60% / 40% (discounts / rebates).</div>`;
+}
+function g2nMetricsFromSales(net,annual,seed,mode){
+  const gs=seed+'g2n';
+  const j=s=>0.9+0.2*hash(gs+s);
+  const dedRate=0.12+0.10*hash(gs+'ded');                  // 12–22% total deductions
+  const gross=net/(1-dedRate);
+  const disc=gross*dedRate*0.60, reb=gross*dedRate*0.40;   // accrued amounts YTD (USDmn); split so Gross - Disc - Reb = Net
+  const discPct=disc/gross*100, rebPct=reb/gross*100;
+  const n2g=net/gross*100, gmPct=(net*0.41*j('g'))/net*100;
+  const today=[gross,disc,discPct,reb,rebPct,net,n2g,gmPct];
+  const aGross=annual/(1-dedRate), aDisc=aGross*dedRate*0.60, aReb=aGross*dedRate*0.40; // full-year amounts (same split as YTD)
+  const annualAmt=[aGross,aDisc,0,aReb,0,annual,0,0];
+  const planShare=planShareNow(mode);
+  const cmpBase=mode==='annual'?0.93:0.96, cmpBand=mode==='annual'?0.14:0.10, ck=mode==='annual'?'y':'m';
+  const out=G2NMETRICS.map((m,mi)=>{const tv=today[mi];
+    const target = m.pct ? tv*(0.97+hash(gs+'gp'+mi)*0.08) : annualAmt[mi]*planShare;  // rates ≈ current; amounts = full-year run-rate (same logic as Net Sales)
+    return {today:tv, target, cmp:tv*(cmpBase+hash(gs+ck+'g'+mi)*cmpBand)};});
+  out[5]=rowMetrics(net,annual,seed,mode)[0];              // link Net Sales to Performance table's Net Sales metric
+  return out;
+}
+function g2nRows(){
+  const mode=window.kamMode||'annual';
+  const sc=rowScaffold();
+  const rows=sc.rows.map(r=>({label:r.label,kind:r.kind,metrics:g2nMetricsFromSales(r.sales,r.annual,r.seed,mode)}));
+  const typeRows=sc.typeRows.map(r=>({label:r.label,kind:'type',metrics:g2nMetricsFromSales(r.sales,r.annual,r.seed,mode)}));
+  const total=sc.totalSales!=null?{label:'Total',metrics:g2nMetricsFromSales(sc.totalSales,sc.totalAnnual,'TOTAL'+sc.ptype,mode)}:null;
+  return {rows,total,typeRows};
+}
+function renderG2NTable(){
+  const mode=window.kamMode||'annual';
+  const subs=mode==='annual'?['YTD','Annual plan','% gap','YoY','% gap YoY']:['MTD','Month plan','% gap','MoM','% gap MoM'];
+  const fmtM=(m,v)=> m.pct? v.toFixed(1) : (v>=10?v.toFixed(1):v.toFixed(2));
+  const pace=paceFrac();
+  const cell=(m,today,target,cmp)=>{const denom=m.pct?target:target*pace;
+    const gap=denom?today/denom-1:0, cg=cmp?today/cmp-1:0;
+    const gB=m.hi?gap>=0:gap<=0, cB=m.hi?cg>=0:cg<=0;
+    const pc=(v,b)=>`<td class="${b?'pos':'neg'}">${v>=0?'+':''}${Math.round(v*100)}%</td>`;
+    return `<td>${fmtM(m,today)}</td><td>${fmtM(m,target)}</td>${pc(gap,gB)}<td>${fmtM(m,cmp)}</td>${pc(cg,cB)}`;};
+  let h='<thead><tr><th class="lbl" rowspan="2">Account / product type</th>';
+  G2NMETRICS.forEach(m=>h+=`<th class="grp" colspan="5">${m.name} (${m.unit})</th>`);
+  h+='</tr><tr>';G2NMETRICS.forEach(()=>subs.forEach(s=>h+=`<th class="sub">${s}</th>`));h+='</tr></thead><tbody>';
+  const draw=(r,cls)=>{h+=`<tr class="${cls||rowClass(r.kind)}"><td class="lbl ${rowLblClass(r.kind)}">${r.label}</td>`;
+    r.metrics.forEach((mt,mi)=>h+=cell(G2NMETRICS[mi],mt.today,mt.target,mt.cmp));h+='</tr>';};
+  const d=g2nRows();
+  d.rows.forEach(r=>draw(r));
+  if(d.total){h+='<tr class="total"><td class="lbl">Total</td>';d.total.metrics.forEach((mt,mi)=>h+=cell(G2NMETRICS[mi],mt.today,mt.target,mt.cmp));h+='</tr>';}
+  if(d.typeRows&&d.typeRows.length){h+=`<tr class="sep"><td class="lbl">By product type</td><td colspan="${G2NMETRICS.length*5}"></td></tr>`;
+    d.typeRows.forEach(r=>draw(r,'typ'));}
+  h+='</tbody>';
+  document.getElementById('g2n-table').innerHTML=h;
+}
+
 /* ===== G2N health & risk ===== */
+/* ===== Deal scenario & break-even calculator ===== */
+const SC_PRICE={Fungicides:28,Herbicides:22,Insecticides:32,Biologicals:40};
+function scCtx(acct,pt){
+  const gs=acct+pt+'g2n';
+  const dedRate=0.12+0.10*hash(gs+'ded');
+  return {dedRate, discPct:dedRate*60, rebPct:dedRate*40, n2g:(1-dedRate)*100, gmPct:41*(0.9+0.2*hash(gs+'g'))};
+}
+function openScenario(acct){
+  const selCust=document.getElementById('f-cust').value;
+  const acc=acct||selCust||CUSTOMERS[0];
+  const selP=document.getElementById('f-ptype').value;
+  const pt=(selP&&selP!=='All product types')?selP:'Fungicides';
+  const accOpts=CUSTOMERS.map(c=>`<option ${c===acc?'selected':''}>${c}</option>`).join('');
+  const ptOpts=Object.keys(PRODUCTS).map(t=>`<option ${t===pt?'selected':''}>${t}</option>`).join('');
+  document.getElementById('sccard').innerHTML=
+    `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">`+
+      `<div><h2>Deal scenario &amp; break-even calculator</h2>`+
+        `<div class="muted" style="font-size:12px">Model a special deal: discount impact on profit and net-price leakage, plus the extra volume needed to stay profit-neutral.</div></div>`+
+      `<div style="display:flex;align-items:center;gap:8px;flex:none">`+
+        `<button class="scbtn" onclick="scDraftLetter()"><i class="ti ti-send"></i> Send approval request</button>`+
+        `<button class="close" onclick="closeScenario()" style="float:none;margin:0">&times;</button>`+
+      `</div>`+
+    `</div>`+
+    `<div class="scgrid"><div>`+
+      `<div class="scfield"><label>Account</label><select id="sc-acc" onchange="scCompute()">${accOpts}</select></div>`+
+      `<div class="scfield"><label>Product type</label><select id="sc-pt" onchange="scOnType()">${ptOpts}</select></div>`+
+      `<div class="scfield"><label>Deal volume (&#39;000 L)</label><input id="sc-vol" type="number" min="1" value="50" oninput="scCompute()"></div>`+
+      `<div class="scfield"><label>List price (&euro; / L)</label><input id="sc-price" type="number" min="1" step="0.5" value="${SC_PRICE[pt]||25}" oninput="scCompute()"></div>`+
+      `<div class="scfield"><label>Additional discount (on top of current)</label><div class="rng"><input id="sc-dd" type="range" min="0" max="25" step="0.5" value="5" oninput="scCompute()"><span class="rngval" id="sc-dd-v">5.0%</span></div></div>`+
+      `<div class="scctx" id="sc-ctx"></div>`+
+    `</div><div>`+
+      `<div class="scout" id="sc-out"></div>`+
+      `<div id="sc-rec"></div>`+
+      `<div id="sc-letter" style="display:none;margin-top:12px"></div>`+
+    `</div></div>`;
+  document.getElementById('scmodal').style.display='flex';
+  scCompute();
+}
+function scOnType(){const pt=document.getElementById('sc-pt').value;document.getElementById('sc-price').value=SC_PRICE[pt]||25;scCompute();}
+function closeScenario(){document.getElementById('scmodal').style.display='none';}
+function scCompute(){
+  const acc=document.getElementById('sc-acc').value, pt=document.getElementById('sc-pt').value;
+  const V=Math.max(0,+document.getElementById('sc-vol').value||0);
+  const P=Math.max(0,+document.getElementById('sc-price').value||0);
+  const dd=Math.max(0,+document.getElementById('sc-dd').value||0)/100;
+  document.getElementById('sc-dd-v').textContent=(dd*100).toFixed(1)+'%';
+  const ctx=scCtx(acc,pt), d0=ctx.dedRate, discRate0=ctx.discPct/100, mr=ctx.gmPct/100;
+  const grossK=V*P, baseNet=grossK*(1-d0), cogs=baseNet*(1-mr), baseMargin=baseNet*mr;
+  const scNet=grossK*(1-d0-dd), scMargin=scNet-cogs, profitImpact=scMargin-baseMargin, extraDisc=grossK*dd;
+  const totalDedNew=(d0+dd)*100, newDiscRate=(discRate0+dd)*100, newN2G=(1-d0-dd)*100, unitMarginGross=(1-d0)*mr-dd;
+  const finalPrice=P*(1-d0-dd);
+  document.getElementById('sc-ctx').innerHTML=
+    `Current for <b>${acc}</b> &middot; ${pt}: discount <b>${ctx.discPct.toFixed(1)}%</b>, rebate <b>${ctx.rebPct.toFixed(1)}%</b> of gross &middot; net-to-gross <b>${ctx.n2g.toFixed(1)}%</b> &middot; gross margin <b>${ctx.gmPct.toFixed(1)}%</b> of net.`;
+  document.getElementById('sc-out').innerHTML=
+    `<div class="row head"><span>Deal economics</span><span></span></div>`+
+    `<div class="row"><span class="k">Gross sales (volume &times; list price)</span><span class="v">${fmK(grossK)}</span></div>`+
+    `<div class="row"><span class="k">Final deal price (&euro;/L, net of deductions)</span><span class="v">&euro;${P.toFixed(2)} &rarr; &euro;${finalPrice.toFixed(2)}</span></div>`+
+    `<div class="row"><span class="k">Net sales / deal value after ${totalDedNew.toFixed(1)}% deductions</span><span class="v">${fmK(scNet)}</span></div>`+
+    `<div class="row"><span class="k">Extra discount given away</span><span class="v" style="color:var(--neg)">${fmK(extraDisc)}</span></div>`+
+    `<div class="row head"><span>Net-price leakage &mdash; ${acc}</span><span></span></div>`+
+    `<div class="row"><span class="k">Discount rate</span><span class="v">${ctx.discPct.toFixed(1)}% &rarr; ${newDiscRate.toFixed(1)}%</span></div>`+
+    `<div class="row"><span class="k">Net-to-gross</span><span class="v">${ctx.n2g.toFixed(1)}% &rarr; ${newN2G.toFixed(1)}%</span></div>`+
+    `<div class="row big"><span class="k">Gross-margin impact vs no extra discount</span><span class="v" style="color:${profitImpact<0?'var(--neg)':'var(--pos)'}">${profitImpact<0?'\u2212':'+'}${fmK(Math.abs(profitImpact))}</span></div>`;
+  let rec, recLine;
+  if(dd<=0){rec=`<div class="screc">No additional discount applied &mdash; profit is unchanged. Move the slider to model a special deal.</div>`;recLine='No additional discount applied; profit is unchanged.';}
+  else if(unitMarginGross<=0){rec=`<div class="screc scwarn">The extra discount (<b>${(dd*100).toFixed(1)}%</b>) exceeds the unit gross margin, so the deal would be <b>loss-making per unit</b> &mdash; no volume can offset it. Keep the extra discount below <b>${((1-d0)*mr*100).toFixed(1)}%</b>.</div>`;recLine='Warning: the extra discount exceeds the unit gross margin, so the deal is loss-making per unit and cannot be offset by volume.';}
+  else{const dVfrac=dd/unitMarginGross, dV=V*dVfrac;
+    rec=`<div class="screc">To keep profit neutral, increase deal volume by <b>${dV.toFixed(0)} &#39;000 L (+${(dVfrac*100).toFixed(0)}%)</b>, to about <b>${(V+dV).toFixed(0)} &#39;000 L</b>. That recovers the <b>${fmK(extraDisc)}</b> of margin given away by the ${(dd*100).toFixed(1)}% extra discount. Note the leakage trade-off: ${acc}&#39;s deal discount rate rises to <b>${newDiscRate.toFixed(1)}%</b> (net-to-gross down to ${newN2G.toFixed(1)}%).</div>`;
+    recLine=`To stay profit-neutral, volume should increase by ~${dV.toFixed(0)} '000 L (+${(dVfrac*100).toFixed(0)}%) to ~${(V+dV).toFixed(0)} '000 L, offsetting the margin given away.`;}
+  document.getElementById('sc-rec').innerHTML=rec;
+  window.scLast={acc,pt,V,P,grossK,scNet,cogs,extraDisc,profitImpact,scMargin,dd,finalPrice,newDiscRate,newN2G,recLine};
+}
+function scDraftLetter(){
+  const s=window.scLast; if(!s)return;
+  const lines=[
+    'Dear [Line Manager],','',
+    'I would like to request approval for a pricing exception on the following deal:','',
+    'Client: '+s.acc,
+    'Product type: '+s.pt,
+    "Volume: "+s.V.toLocaleString()+" '000 L",
+    'List price: \u20ac'+s.P.toFixed(2)+' / L',
+    'List value (gross): '+fmK(s.grossK),
+    'Deal price with applied exception: \u20ac'+s.finalPrice.toFixed(2)+' / L  (additional discount '+(s.dd*100).toFixed(1)+'%)',
+    'Deal value (net): '+fmK(s.scNet),
+    'Cost of deal (COGS): '+fmK(s.cogs),
+    'Gross-margin on deal: '+fmK(s.scMargin),
+    'Gross-margin impact vs standard terms: \u2212'+fmK(Math.abs(s.profitImpact)),
+    'Net-price leakage: discount rises to '+s.newDiscRate.toFixed(1)+'%, net-to-gross down to '+s.newN2G.toFixed(1)+'%.',
+    '',
+    s.recLine,'',
+    'Your approval to proceed would be appreciated.','',
+    'Best regards,','[Your name]'
+  ];
+  const txt=lines.join('\n');
+  const subj='Pricing exception approval \u2014 '+s.acc+' / '+s.pt;
+  const subjEnc=encodeURIComponent(subj), bodyEnc=encodeURIComponent(txt);
+  const outlookUrl='https://outlook.office.com/mail/deeplink/compose?subject='+subjEnc+'&body='+bodyEnc;
+  const mailtoUrl='mailto:?subject='+subjEnc+'&body='+bodyEnc;
+  const panel=document.getElementById('sc-letter');
+  panel.style.display='block';
+  panel.innerHTML=
+    `<div class="scfield" style="margin-bottom:8px"><label>Draft approval request (editable)</label>`+
+    `<textarea id="sc-lettertext" style="width:100%;height:250px;font-family:inherit;font-size:12px;border:1px solid var(--border-2);border-radius:8px;padding:10px;line-height:1.5;color:var(--text);resize:vertical">${txt.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</textarea></div>`+
+    `<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">`+
+      `<a class="scbtn" style="text-decoration:none" href="${outlookUrl}" target="_blank" rel="noopener"><i class="ti ti-send"></i> Open draft in Outlook</a>`+
+      `<a class="scbtn row" style="text-decoration:none" href="${mailtoUrl}">Desktop mail app</a>`+
+      `<button class="scbtn row" onclick="scCopyLetter()">Copy</button>`+
+      `<span id="sc-copied" class="muted" style="font-size:11px"></span>`+
+    `</div>`+
+    `<div class="muted" style="font-size:10.5px;margin-top:6px">Opens a prefilled compose window in your Outlook on the web (sign-in required); add the manager and send. &ldquo;Desktop mail app&rdquo; uses your default mail client.</div>`;
+  try{window.open(outlookUrl,'_blank','noopener');}catch(e){}
+}
+function scCopyLetter(){const t=document.getElementById('sc-lettertext');t.select();
+  let ok=false; try{navigator.clipboard.writeText(t.value);ok=true;}catch(e){try{ok=document.execCommand('copy');}catch(_){}}
+  const m=document.getElementById('sc-copied'); if(m)m.textContent=ok?'Copied to clipboard':'Select the text and copy manually';}
 function buildG2NItems(){
   const P=accountProfiles();
   const leak=[...P].sort((a,b)=>a.g2n-b.g2n)[0];
@@ -981,7 +1372,7 @@ function renderG2N(){
 }
 
 /* ===== Download recommendations: PDF (print) or Outlook tasks (.ics) ===== */
-function recSet(type){return type==='action'?{title:'Sales Plan Action Log',data:buildActionItems()}:{title:'G2N Health & Risk',data:buildG2NItems()};}
+function recSet(type){return type==='action'?{title:'Sales Plan Action Log',data:buildActionItems()}:{title:'G2N Plan Action Log',data:buildG2NItems()};}
 function scopeLabel(){const c=document.getElementById('crumb');return c?c.innerText.replace(/\s+/g,' ').trim():'Syngenta KAM';}
 function downloadBlob(name,content,mime){const b=new Blob([content],{type:mime});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);}
 function exportPDF(type){
@@ -1021,6 +1412,110 @@ function exportICS(type){
   ics+='END:VCALENDAR\r\n';
   downloadBlob(title.replace(/[^A-Za-z0-9]+/g,'_')+'.ics', ics, 'text/calendar;charset=utf-8');
 }
+/* ===== Outlook scheduler (calendar + action-log tasks) ===== */
+function pad2(n){return String(n).padStart(2,'0');}
+let SCHED={};
+function openSchedule(type){
+  const {data}=recSet(type);
+  const now=new Date();
+  SCHED={type, items:(data&&data.items)||[], sel:0, calMonth:new Date(now.getFullYear(),now.getMonth(),1), date:new Date(now.getFullYear(),now.getMonth(),now.getDate())};
+  let timeOpts='';for(let h=7;h<=19;h++){for(const mm of [0,30]){const t=pad2(h)+':'+pad2(mm);timeOpts+=`<option ${t==='09:00'?'selected':''}>${t}</option>`;}}
+  document.getElementById('schcard').innerHTML=
+    `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px">`+
+      `<div><h2>Schedule in Outlook</h2><div class="muted" style="font-size:12px">Pick a day and time, choose the customer / task from the action log, set a reminder, then save to your calendar or send an invite.</div></div>`+
+      `<button class="close" onclick="closeSchedule()" style="float:none;margin:0">&times;</button>`+
+    `</div>`+
+    `<div id="sch-cal" style="margin-top:12px"></div>`+
+    `<div class="sch-row">`+
+      `<div class="sch-field"><label>Time</label><select id="sch-time">${timeOpts}</select></div>`+
+      `<div class="sch-field"><label>Duration</label><select id="sch-dur"><option value="15">15 min</option><option value="30" selected>30 min</option><option value="60">1 hour</option></select></div>`+
+      `<div class="sch-field"><label>Reminder</label><select id="sch-rem"><option value="0">At start</option><option value="15">15 min before</option><option value="60">1 hour before</option><option value="1440" selected>1 day before</option></select></div>`+
+    `</div>`+
+    `<div class="sch-field" style="margin-top:10px"><label>Customer / task from action log</label><div class="sch-list" id="sch-list"></div></div>`+
+    `<div class="sch-row">`+
+      `<div class="sch-field" style="flex:2"><label>Subject</label><input id="sch-subj" type="text"></div>`+
+      `<div class="sch-field" style="flex:1.4"><label>Partner email (for invite)</label><input id="sch-partner" type="email" placeholder="name@partner.com"></div>`+
+    `</div>`+
+    `<div class="sch-field" style="margin-top:10px"><label>Notes</label><textarea id="sch-notes" style="height:62px;resize:vertical"></textarea></div>`+
+    `<div class="sch-actions">`+
+      `<button class="sch-save" onclick="schSave('self')"><i class="ti ti-calendar-plus"></i> Save in my calendar</button>`+
+      `<button class="sch-save alt" onclick="schSave('invite')"><i class="ti ti-send"></i> Save &amp; send invite to partner</button>`+
+    `</div>`+
+    `<div id="sch-out" style="margin-top:12px"></div>`+
+    `<div class="muted" style="font-size:10.5px;margin-top:8px">Opens a prefilled event in your Outlook on the web (sign-in required); click Save / Send there. A matching .ics is also downloaded for Outlook desktop. The invite option adds the partner as a meeting attendee.</div>`;
+  document.getElementById('schedmodal').style.display='flex';
+  schRenderCal(); schRenderList(); schSelItem(0);
+}
+function closeSchedule(){document.getElementById('schedmodal').style.display='none';}
+function schMonth(d){SCHED.calMonth=new Date(SCHED.calMonth.getFullYear(),SCHED.calMonth.getMonth()+d,1);schRenderCal();}
+function schPickDay(y,mo,d){SCHED.date=new Date(y,mo,d);schRenderCal();}
+function schRenderCal(){
+  const m=SCHED.calMonth, y=m.getFullYear(), mo=m.getMonth();
+  const first=new Date(y,mo,1), startDow=(first.getDay()+6)%7, dim=new Date(y,mo+1,0).getDate();
+  const today=new Date();today.setHours(0,0,0,0);
+  let cells='';for(let i=0;i<startDow;i++)cells+='<div class="sch-d empty"></div>';
+  for(let d=1;d<=dim;d++){const dt=new Date(y,mo,d);
+    const sel=SCHED.date&&dt.toDateString()===SCHED.date.toDateString();
+    const isT=dt.toDateString()===today.toDateString(), past=dt<today;
+    cells+=`<div class="sch-d${sel?' sel':''}${isT?' today':''}${past?' past':''}" onclick="schPickDay(${y},${mo},${d})">${d}</div>`;}
+  document.getElementById('sch-cal').innerHTML=
+    `<div class="sch-calhead"><button class="sch-nav" onclick="schMonth(-1)">&lsaquo;</button><span>${m.toLocaleString('en-US',{month:'long',year:'numeric'})}</span><button class="sch-nav" onclick="schMonth(1)">&rsaquo;</button></div>`+
+    `<div class="sch-dow">`+['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(x=>`<span>${x}</span>`).join('')+`</div>`+
+    `<div class="sch-grid">${cells}</div>`;
+}
+function schRenderList(){
+  document.getElementById('sch-list').innerHTML=SCHED.items.map((it,i)=>`<button class="sch-item${i===SCHED.sel?' sel':''}" onclick="schSelItem(${i})">${it.title}</button>`).join('')||'<div class="sch-item">No action items</div>';
+}
+function schSelItem(i){
+  SCHED.sel=i; const it=SCHED.items[i]; if(!it)return;
+  document.getElementById('sch-subj').value=it.title;
+  document.getElementById('sch-notes').value=(it.detail||'')+(it.action?(' Action: '+it.action):'');
+  [...document.querySelectorAll('#sch-list .sch-item')].forEach((el,idx)=>el.classList.toggle('sel',idx===i));
+}
+function schISOlocal(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate())+'T'+pad2(d.getHours())+':'+pad2(d.getMinutes())+':00';}
+function schBuildEvent(){
+  const it=SCHED.items[SCHED.sel]||{};
+  const tp=(document.getElementById('sch-time').value||'09:00').split(':');
+  const dur=+document.getElementById('sch-dur').value, rem=+document.getElementById('sch-rem').value;
+  const subject=(document.getElementById('sch-subj').value||'').trim()||'Syngenta KAM task';
+  const notes=(document.getElementById('sch-notes').value||'').trim();
+  const partner=(document.getElementById('sch-partner').value||'').trim();
+  const start=new Date(SCHED.date);start.setHours(+tp[0],+tp[1],0,0);
+  const end=new Date(start.getTime()+dur*60000);
+  const loc=(it.title&&it.title.indexOf('\u2014')>-1)?it.title.split('\u2014')[1].trim():'';
+  const trig=rem<=0?'-PT0M':(rem%1440===0?'-P'+(rem/1440)+'D':(rem%60===0?'-PT'+(rem/60)+'H':'-PT'+rem+'M'));
+  return {start,end,subject,notes,location:loc,partner,trigger:trig,startISO:schISOlocal(start),endISO:schISOlocal(end)};
+}
+function schOutlookUrl(ev,invite){
+  let u='https://outlook.office.com/calendar/0/deeplink/compose?subject='+encodeURIComponent(ev.subject)
+    +'&startdt='+encodeURIComponent(ev.startISO)+'&enddt='+encodeURIComponent(ev.endISO)
+    +'&body='+encodeURIComponent(ev.notes)+'&location='+encodeURIComponent(ev.location)+'&allday=false';
+  if(invite&&ev.partner)u+='&to='+encodeURIComponent(ev.partner);
+  return u;
+}
+function schICS(ev,invite){
+  const now=new Date(), p=pad2;
+  const fmtZ=d=>d.getUTCFullYear()+p(d.getUTCMonth()+1)+p(d.getUTCDate())+'T'+p(d.getUTCHours())+p(d.getUTCMinutes())+'00Z';
+  const fmtL=d=>d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'T'+p(d.getHours())+p(d.getMinutes())+'00';
+  let s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Syngenta KAM//Scheduler//EN\r\nCALSCALE:GREGORIAN\r\n'+(invite?'METHOD:REQUEST':'METHOD:PUBLISH')+'\r\n';
+  s+='BEGIN:VEVENT\r\nUID:'+now.getTime()+'@syngenta-kam\r\nDTSTAMP:'+fmtZ(now)+'\r\nDTSTART:'+fmtL(ev.start)+'\r\nDTEND:'+fmtL(ev.end)+'\r\nSUMMARY:'+icsEsc(ev.subject)+'\r\n';
+  if(ev.notes)s+='DESCRIPTION:'+icsEsc(ev.notes)+'\r\n';
+  if(ev.location)s+='LOCATION:'+icsEsc(ev.location)+'\r\n';
+  if(invite)s+='ORGANIZER;CN=Organiser:mailto:organiser@syngenta.com\r\nATTENDEE;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE:mailto:'+ev.partner+'\r\n';
+  s+='BEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:'+icsEsc('Reminder: '+ev.subject)+'\r\nTRIGGER:'+ev.trigger+'\r\nEND:VALARM\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n';
+  return s;
+}
+function schSave(mode){
+  const invite=mode==='invite', ev=schBuildEvent();
+  if(invite&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(ev.partner)){document.getElementById('sch-out').innerHTML='<div class="screc scwarn">Enter a valid partner email to send an invite.</div>';return;}
+  const url=schOutlookUrl(ev,invite);
+  try{window.open(url,'_blank','noopener');}catch(e){}
+  downloadBlob(('KAM '+ev.subject).replace(/[^A-Za-z0-9]+/g,'_').slice(0,60)+'.ics', schICS(ev,invite), 'text/calendar;charset=utf-8');
+  const when=ev.start.toLocaleString('en-GB',{weekday:'short',day:'numeric',month:'short'})+' '+pad2(ev.start.getHours())+':'+pad2(ev.start.getMinutes());
+  document.getElementById('sch-out').innerHTML=
+    `<div class="screc">${invite?'Invite':'Event'} ready for <b>${when}</b>${invite?(' &middot; attendee <b>'+ev.partner+'</b>'):''}. Outlook on the web opened in a new tab; an .ics was also downloaded for Outlook desktop.`+
+    `<div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap"><a class="scbtn" style="text-decoration:none" href="${url}" target="_blank" rel="noopener"><i class="ti ti-calendar"></i> Re-open in Outlook</a></div></div>`;
+}
 let dlType='action';
 function openDownloadModal(type){dlType=type;document.getElementById('dlmsg').innerHTML='Download <b>'+recSet(type).title+'</b> — do you want to save a <b>PDF</b>, or should I create <b>separate Outlook tasks</b> in your calendar and set a reminder for each task?';document.getElementById('dlmodal').style.display='flex';}
 function closeDownloadModal(){document.getElementById('dlmodal').style.display='none';}
@@ -1033,25 +1528,43 @@ const INTRO_HTML=`<button class="close" onclick="closeInfo()">&times;</button><h
 <li>Filter by <span class="gt">area, country, product, customer, crop, rep and time period</span> at the top; everything recalculates.</li>
 <li>Switch <span class="gt">Annual / Month</span> and pick <span class="gt">YTD</span> or a period on the left.</li>
 <li>KPI tiles compare to prior-year YTD: green &amp; up = better, red &amp; down = worse.</li>
-<li>The Germany map shows regional <span class="gt">opportunities</span> (green) and <span class="gt">risks</span> (red), bubble size by USD value.</li>
-<li>The <span class="gt">Sales Plan Action Log</span> and <span class="gt">G2N health</span> blocks propose actions you can export as PDF or Outlook tasks.</li>
-<li>Ask the <span class="gt">Personal Analytic Agent</span> (top-right) about the current view.</li>
+</ul>
+<h4>Views</h4>
+<ul>
+<li><span class="gt">Sales Plan vs Performance</span>: performance tracking, open orders, and the Sales Plan Action Log.</li>
+<li><span class="gt">G2N Plan vs Performance</span>: the gross-to-net bridge <span class="gt">Gross Sales &minus; Discounts &minus; Rebates = Net Sales</span> by account and product type, paced to the season like the sales plan. Toggle <span class="gt">Table</span> or <span class="gt">Waterfall</span>.</li>
+<li><span class="gt">Market Opportunity Insights</span>: a Germany opportunity / risk map (work in progress; will link to a dedicated Market Opportunity Dashboard).</li>
+</ul>
+<h4>Tools</h4>
+<ul>
+<li><span class="gt">Build scenario</span> (G2N view) opens the <span class="gt">Deal scenario &amp; break-even calculator</span>: model a special deal (volume, list price, extra discount) to see the profit impact, the effect on that account&#39;s net-price leakage, and the extra volume needed to stay profit-neutral. <span class="gt">Send approval request</span> drafts an exception letter to your line manager and opens it in Outlook.</li>
+<li>The Action Logs export as <span class="gt">PDF</span>, or <span class="gt">Create Outlook tasks + reminders</span> opens a scheduler: pick a day, time and reminder for a customer / task, then <span class="gt">save to your calendar</span> or <span class="gt">send an invite to a partner</span>.</li>
+<li>Ask the <span class="gt">Personal Analytic Agent</span> (bottom-right) about the current view.</li>
 </ul>
 <p>Classification: INTERNAL USE ONLY &middot; modelled sample data.</p>`;
 const GLOSSARY=[
- ['Net Sales','Gross Sales − Discounts − Rebates − Returns.'],
- ['Gross Margin','Net Sales − COGS.'],
+ ['Gross Sales','List price × volume, before any deductions.'],
+ ['Net Sales','Gross Sales &minus; Discounts &minus; Rebates.'],
+ ['Net-to-Gross','Net Sales / Gross Sales × 100. Higher is better.'],
+ ['Total Deductions','(Discounts + Rebates) / Gross Sales × 100. Lower is better.'],
+ ['Discount Rate','Invoice discounts / Gross Sales × 100. Lower is better.'],
+ ['Rebate Rate','Rebates / Gross Sales × 100. Lower is better.'],
+ ['Gross Margin','Net Sales &minus; COGS.'],
  ['Price Realization','Net Price / List Price × 100.'],
- ['Price Leakage','(List Price − Net Price) / List Price × 100. Lower is better.'],
+ ['Price Leakage','(List Price &minus; Net Price) / List Price × 100. Lower is better.'],
+ ['Bad-debt Exposure','Open receivables at risk / credit limit × 100. Lower is better.'],
  ['Credit Limit Use','Credit used / limit, vs planned / accrued. Lower is better.'],
  ['Invoice Discounts Use','Invoice discounts used vs planned. Lower is better.'],
  ['Rebates accrued vs plan','Rebates accrued against plan. Lower is better.'],
  ['Sales Plan Realization','Current Net Sales / Annual Net Sales Plan.'],
  ['Demand Coverage','(Open orders + Shipped orders) / Sales Plan × 100.'],
- ['Monthly Forecast Accuracy','(1 − |Forecast − Actual| / Actual) × 100.'],
+ ['Monthly Forecast Accuracy','(1 &minus; |Forecast &minus; Actual| / Actual) × 100.'],
  ['Sell-out Velocity','Distributor Sell-Out Volume / Distributor Inventory.'],
- ['G2N','Gross-to-Net: the net-to-gross ratio after discounts and rebates.'],
- ['Opportunity / Risk (map)','Modelled regional MoM change; USD shown at relative market price (SYN −20%).'],
+ ['G2N','Gross-to-Net: net sales as a share of gross after discounts and rebates.'],
+ ['G2N Waterfall','Visual bridge from Gross Sales through Discounts, Rebates and COGS to Gross Margin.'],
+ ['Deal scenario &amp; break-even calculator','Models a special deal: the profit impact of an extra discount, the effect on net-price leakage, and the extra volume needed to keep gross profit unchanged.'],
+ ['Break-even volume','Additional volume that recovers the margin given away by a deeper discount, so gross profit stays neutral.'],
+ ['Opportunity / Risk (map)','Modelled regional MoM change; USD shown at relative market price (SYN &minus;20%).'],
  ['PYTD','Prior-Year To-Date, the comparison baseline for KPI trends.'],
  ['YTD','Year-To-Date, accumulated from 1 Jan to today.']
 ];
@@ -1099,7 +1612,7 @@ function answerAgent(q){
   return `I answer from the current view. Try: "net sales", "top opportunity", "biggest risk", "what should I do", "credit", or "demand coverage". Open the Glossary for definitions.`;
 }
 
-renderMap(); renderActionLog(); renderG2N(); renderHiAlerts();
+renderMap(); renderActionLog(); renderG2N(); renderG2NWaterfall(); renderG2NTable(); renderHiAlerts();
 agentSay('Hi, I am your analytic agent. Ask me about the current view, net sales, opportunities, risks, or what to do next. Tap a suggestion below to start.');
 </script>
 </body>
