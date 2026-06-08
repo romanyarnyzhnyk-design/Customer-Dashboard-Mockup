@@ -342,7 +342,7 @@ table.mini td{padding:6px;border-bottom:1px solid var(--border)}
     <button data-an="sales" class="an-active"><i class="ti ti-chart-histogram" style="color:var(--blue)"></i> <span>Sales Plan vs Performance</span></button>
     <button data-an="g2n"><i class="ti ti-receipt" style="color:var(--teal)"></i> <span>G2N Plan vs Performance</span></button>
     <button data-an="market"><i class="ti ti-bulb" style="color:var(--orange)"></i> <span>Market Opportunity Insights</span></button>
-    <div class="sec up secrow"><span>Download Recommendations</span>
+    <button onclick="openStats()"><i class="ti ti-chart-line" style="color:var(--purple)"></i> <span>Usage Statistics</span></button>    <div class="sec up secrow"><span>Download Recommendations</span>
       <span class="slicer">
         <button class="on tipbtn" data-mode="annual">Annual<span class="tip">Accumulative YTD performance vs Annual Year Sales Plan.</span></button>
         <button class="tipbtn" data-mode="month">Month<span class="tip">Accumulative CurrentMonthTD performance vs Current Month Sales Plan.</span></button>
@@ -1617,6 +1617,216 @@ function answerAgent(q){
 
 renderMap(); renderActionLog(); renderG2N(); renderG2NWaterfall(); renderG2NTable(); renderHiAlerts();
 agentSay('Hi, I am your analytic agent. Ask me about the current view, net sales, opportunities, risks, or what to do next. Tap a suggestion below to start.');
+
+/* ============================================================
+   USAGE STATISTICS  (local storage + voluntary report sharing)
+   - Each device stores all its own sessions locally.
+   - "Share my statistics" exports a complete report file (and can
+     open a pre-addressed email) so the user sends it to you.
+   - "Import reports" lets you merge everyone's files into one
+     combined view: users, blocks, time spent, devices.
+   Nothing is collected automatically; sharing is user-initiated.
+   ============================================================ */
+(function(){
+  const STORE_KEY  = 'dashUsageSessions';
+  const OWNER_EMAIL = 'roman.nyzhnyk@syngenta.com';   // Share opens Outlook pre-addressed here
+
+  let anonId;
+  try{ anonId = localStorage.getItem('dashAnonId');
+       if(!anonId){ anonId=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()); localStorage.setItem('dashAnonId',anonId);} }
+  catch(e){ anonId=(crypto.randomUUID?crypto.randomUUID():String(Math.random())); }
+
+  function deviceType(){
+    const ua=navigator.userAgent, w=window.innerWidth||screen.width, touch=(navigator.maxTouchPoints||0)>1;
+    if(/iPad|Tablet|PlayBook|Silk/i.test(ua)||(/Macintosh/.test(ua)&&touch)) return 'Tablet';
+    if(/Mobi|iPhone|iPod|Android.*Mobile|Windows Phone/i.test(ua)) return 'Mobile';
+    if(/Android/i.test(ua)||(touch&&w<1024)) return 'Tablet';
+    if(w<768) return 'Mobile';
+    return 'Laptop / Desktop';
+  }
+  const device=deviceType();
+
+  const sessionId=(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random());
+  const startedAt=Date.now();
+  let fgStart=Date.now(), fgMs=0;
+  const blocks={}; let cur=null, bStart=Date.now();
+
+  const LABELS={'view:sales':'Sales Plan vs Performance','view:g2n':'G2N Plan vs Performance',
+    'view:market':'Market Opportunity Insights','modal:action':'Sales Plan Action Log',
+    'modal:g2n':'G2N Plan Action Log','page:stats':'Usage Statistics'};
+  const label=k=>LABELS[k]||k;
+
+  function switchBlock(k){ const now=Date.now(); if(cur){blocks[cur]=(blocks[cur]||0)+(now-bStart);} cur=k; bStart=now; persist(); }
+  function totalMs(){ return fgMs+(document.hidden?0:Date.now()-fgStart); }
+  function liveBlocks(){ const o={}; Object.keys(blocks).forEach(k=>o[k]=blocks[k]); if(cur) o[cur]=(o[cur]||0)+(Date.now()-bStart); return o; }
+  const fmt=ms=>{const s=Math.round(ms/1000);const m=Math.floor(s/60);return (m?m+'m ':'')+(s%60)+'s';};
+
+  function currentRecord(){ const b=liveBlocks(); const blk={}; Object.keys(b).forEach(k=>blk[label(k)]=Math.round(b[k]/1000));
+    return {id:sessionId,userKey:anonId,device,viewport:window.innerWidth+'×'+window.innerHeight,startedAt,totalSec:Math.round(totalMs()/1000),blocks:blk}; }
+  function loadAll(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY))||[]; }catch(e){ return []; } }
+  function persist(){ try{ const all=loadAll().filter(s=>s.id!==sessionId); all.push(currentRecord()); while(all.length>500) all.shift(); localStorage.setItem(STORE_KEY,JSON.stringify(all)); }catch(e){} }
+
+  if(typeof window.setView==='function'){ const f=window.setView; window.setView=function(v){switchBlock('view:'+v);return f.apply(this,arguments);}; }
+  if(typeof window.openDownloadModal==='function'){ const f=window.openDownloadModal; window.openDownloadModal=function(t){switchBlock('modal:'+t);return f.apply(this,arguments);}; }
+  if(typeof window.closeDownloadModal==='function'){ const f=window.closeDownloadModal; window.closeDownloadModal=function(){switchBlock('view:'+(window.curView||'sales'));return f.apply(this,arguments);}; }
+  if(typeof window.showWIP==='function'){ const f=window.showWIP; window.showWIP=function(){switchBlock('view:market');return f.apply(this,arguments);}; }
+  if(typeof window.closeWIP==='function'){ const f=window.closeWIP; window.closeWIP=function(){switchBlock('view:'+(window.curView||'sales'));return f.apply(this,arguments);}; }
+  switchBlock('view:'+(window.curView||'sales'));
+
+  setInterval(persist,5000);
+  document.addEventListener('visibilitychange',()=>{ if(document.hidden){fgMs+=Date.now()-fgStart;persist();} else {fgStart=Date.now();bStart=Date.now();} });
+  window.addEventListener('pagehide',()=>{ if(!document.hidden){fgMs+=Date.now()-fgStart;} persist(); });
+
+  // ---- Stats page ----
+  const ov=document.createElement('div'); ov.id='statspage';
+  ov.style.cssText='display:none;position:fixed;inset:0;z-index:1000;background:var(--bg);overflow:auto;padding:24px';
+  ov.innerHTML='<div style="max-width:900px;margin:0 auto">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;flex-wrap:wrap">'
+    +'<h2 style="margin:0;color:var(--navy);font-size:20px">Usage Statistics</h2>'
+    +'<div style="display:flex;gap:8px;flex-wrap:wrap">'
+    +'<button id="stats-share" class="clearbtn"><i class="ti ti-send"></i> Share my statistics</button>'
+    +'<button id="stats-import" class="clearbtn"><i class="ti ti-stack-2"></i> Import reports</button>'
+    +'<button id="stats-mine" class="clearbtn" style="display:none"><i class="ti ti-user"></i> My data</button>'
+    +'<button id="stats-close" class="clearbtn"><i class="ti ti-flag"></i> Close</button>'
+    +'</div></div>'
+    +'<div id="stats-banner" class="crumb" style="padding:0 0 12px"></div>'
+    +'<div class="kpis" id="stats-kpis" style="margin-bottom:14px"></div>'
+    +'<div class="card"><h3>Time per dashboard block</h3><div id="stats-blocks"></div></div>'
+    +'<div class="card"><h3>Sessions</h3><div id="stats-sessions" style="max-height:300px;overflow:auto"></div></div>'
+    +'<input type="file" id="stats-file" accept=".xlsx,.json,application/json" multiple style="display:none">'
+    +'</div>';
+  document.body.appendChild(ov);
+
+  function kpi(v,l){ return '<div class="card" style="margin:0;flex:1;min-width:140px"><div style="font-size:22px;font-weight:700;color:var(--navy)">'+v+'</div><div class="muted" style="font-size:11px">'+l+'</div></div>'; }
+
+  function paint(all, imported){
+    document.getElementById('stats-banner').innerHTML = imported
+      ? '<b>Imported reports</b> <span class="x">·</span> combined view across '+importedCount+' file(s)'
+      : 'Your activity on this device <span class="x">·</span> nothing is sent automatically';
+    document.getElementById('stats-mine').style.display = imported ? '' : 'none';
+
+    const totalSec=all.reduce((a,s)=>a+(s.totalSec||0),0);
+    const users=new Set(all.map(s=>s.userKey)).size;
+    const dev={}; all.forEach(s=>dev[s.device]=(dev[s.device]||0)+1);
+    const avg=all.length?Math.round(totalSec/all.length):0;
+    const devCell = imported
+      ? '<div class="card" style="margin:0;flex:2;min-width:200px"><div style="font-size:13px;font-weight:700;color:var(--navy)">By device</div><div class="muted" style="font-size:12px;margin-top:6px">'+(Object.keys(dev).map(d=>d.split(' ')[0]+': '+dev[d]).join(' · ')||'—')+'</div></div>'
+      : '<div class="card" style="margin:0;flex:1;min-width:140px"><div style="font-size:15px;font-weight:700;color:var(--navy)">'+device+'</div><div class="muted" style="font-size:11px">Device</div></div>';
+    document.getElementById('stats-kpis').innerHTML='<div style="display:flex;gap:12px;flex-wrap:wrap;width:100%">'
+      +kpi(users, imported?'Distinct users':'Users (this device)')+kpi(all.length,'Sessions')+kpi(fmt(avg*1000),'Avg session')+kpi(fmt(totalSec*1000),'Total time')+devCell+'</div>';
+
+    const bt={}; all.forEach(s=>Object.keys(s.blocks||{}).forEach(k=>bt[k]=(bt[k]||0)+s.blocks[k]));
+    const sum=Object.values(bt).reduce((a,c)=>a+c,0)||1;
+    document.getElementById('stats-blocks').innerHTML='<table style="width:100%;border-collapse:collapse;font-size:13px">'
+      +Object.keys(bt).sort((x,y)=>bt[y]-bt[x]).map(k=>{const pct=Math.round(100*bt[k]/sum);
+        return '<tr><td style="padding:5px 8px 5px 0">'+k+'</td><td style="width:240px"><div style="background:var(--surface-3);border-radius:5px;height:9px"><div style="width:'+pct+'%;background:var(--blue);height:9px;border-radius:5px"></div></div></td><td style="text-align:right;width:80px;font-weight:600">'+fmt(bt[k]*1000)+'</td><td style="text-align:right;width:46px;color:var(--text-2)">'+pct+'%</td></tr>';
+      }).join('')+'</table>';
+
+    const showUser = imported;
+    document.getElementById('stats-sessions').innerHTML='<table style="width:100%;border-collapse:collapse;font-size:12.5px">'
+      +'<tr style="color:var(--text-2);text-align:left"><th style="padding:4px 8px 4px 0">When</th>'+(showUser?'<th>User</th>':'')+'<th>Device</th><th style="text-align:right">Duration</th></tr>'
+      +all.slice().sort((a,b)=>b.startedAt-a.startedAt).map(s=>{const live=(!imported&&s.id===sessionId)?' <span style="color:var(--blue);font-weight:700">(this session)</span>':'';
+        const uc=showUser?('<td>User '+String(s.userKey||'').replace(/[^a-z0-9]/gi,'').slice(0,6).toUpperCase()+'</td>'):'';
+        return '<tr style="border-top:1px solid var(--border)"><td style="padding:5px 8px 5px 0">'+new Date(s.startedAt).toLocaleString()+live+'</td>'+uc+'<td>'+s.device+'</td><td style="text-align:right;font-weight:600">'+fmt((s.totalSec||0)*1000)+'</td></tr>';
+      }).join('')+'</table>';
+  }
+
+  // ---- SheetJS loader (only when needed) ----
+  function ensureXLSX(){
+    return new Promise((resolve,reject)=>{
+      if(window.XLSX) return resolve(window.XLSX);
+      const s=document.createElement('script');
+      s.src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js';
+      s.onload=()=>resolve(window.XLSX); s.onerror=()=>reject();
+      document.head.appendChild(s);
+    });
+  }
+  const FIXED=['id','userKey','startedAt','device','viewport','totalSec'];
+  const ucode=k=>'User '+String(k||'').replace(/[^a-z0-9]/gi,'').slice(0,6).toUpperCase();
+
+  function buildWorkbook(XLSX, all){
+    // Sessions sheet (one row per session; block columns added dynamically)
+    const blkKeys=[...new Set(all.flatMap(s=>Object.keys(s.blocks||{})))];
+    const rows=all.map(s=>{ const r={ id:s.id, userKey:s.userKey, startedAt:new Date(s.startedAt).toISOString(),
+      device:s.device, viewport:s.viewport, totalSec:s.totalSec };
+      blkKeys.forEach(k=> r[k]=(s.blocks&&s.blocks[k])||0); return r; });
+    const wsS=XLSX.utils.json_to_sheet(rows, {header:[...FIXED,...blkKeys]});
+
+    // Summary sheet (human readable)
+    const totalSec=all.reduce((a,s)=>a+(s.totalSec||0),0);
+    const users=new Set(all.map(s=>s.userKey)).size;
+    const avg=all.length?Math.round(totalSec/all.length):0;
+    const bt={}; all.forEach(s=>Object.keys(s.blocks||{}).forEach(k=>bt[k]=(bt[k]||0)+s.blocks[k]));
+    const sum=Object.values(bt).reduce((a,c)=>a+c,0)||1;
+    const sm=[['Dashboard usage report'],['Generated',new Date().toLocaleString()],['User code',ucode(anonId)],['Device',device],[],
+      ['Metric','Value'],['Distinct users',users],['Sessions',all.length],
+      ['Total time (sec)',totalSec],['Avg session (sec)',avg],[],
+      ['Block','Seconds','Share %']];
+    Object.keys(bt).sort((a,b)=>bt[b]-bt[a]).forEach(k=>sm.push([k,bt[k],Math.round(100*bt[k]/sum)]));
+    const wsSum=XLSX.utils.aoa_to_sheet(sm);
+
+    const wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, wsSum, 'Summary');
+    XLSX.utils.book_append_sheet(wb, wsS, 'Sessions');
+    return wb;
+  }
+
+  // ---- share (Excel report + pre-addressed email) ----
+  function shareStats(){
+    const all=loadAll();
+    const fname='usage-report-'+ucode(anonId).replace('User ','')+'-'+new Date().toISOString().slice(0,10)+'.xlsx';
+    const sendMail=()=>{ if(OWNER_EMAIL){
+      const subj=encodeURIComponent('Customer Dashboard Use Statistic');
+      const body=encodeURIComponent('Hi Roman,\n\nThe Excel report "'+fname+'" was just downloaded to this device. Please attach that file to this email, then click Send.\n\nThanks.');
+      setTimeout(()=>{ location.href='mailto:'+OWNER_EMAIL+'?subject='+subj+'&body='+body; }, 500);
+    }};
+    ensureXLSX().then(XLSX=>{
+      XLSX.writeFile(buildWorkbook(XLSX, all), fname);   // triggers .xlsx download
+      sendMail();
+    }).catch(()=>{
+      // offline fallback: JSON if Excel library can't load
+      const j='usage-report-'+ucode(anonId).replace('User ','')+'-'+new Date().toISOString().slice(0,10)+'.json';
+      const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([JSON.stringify({kind:'dashboard-usage-report',userKey:anonId,device,sessions:all})],{type:'application/json'})); a.download=j; a.click(); URL.revokeObjectURL(a.href);
+      alert('Excel library could not load, so a JSON report was downloaded instead. Please attach "'+j+'".');
+    });
+  }
+
+  // ---- import (owner combines many reports: .xlsx or .json) ----
+  let importedCount=0;
+  function rowsToSessions(rows){
+    return rows.map(r=>{ const blocks={}; Object.keys(r).forEach(k=>{ if(FIXED.indexOf(k)<0 && r[k]!=='' && r[k]!=null) blocks[k]=Number(r[k])||0; });
+      return { id:r.id, userKey:r.userKey, device:r.device, viewport:r.viewport,
+               startedAt: r.startedAt ? Date.parse(r.startedAt) : Date.now(),
+               totalSec: Number(r.totalSec)||0, blocks }; });
+  }
+  function readOne(file, XLSX){
+    if(/\.json$/i.test(file.name)){
+      return file.text().then(t=>{ try{ const j=JSON.parse(t); return j.sessions||(Array.isArray(j)?j:[]); }catch(e){ return []; } });
+    }
+    return file.arrayBuffer().then(buf=>{ try{
+      const wb=XLSX.read(buf,{type:'array'});
+      const ws=wb.Sheets['Sessions']||wb.Sheets[wb.SheetNames[wb.SheetNames.length-1]];
+      return rowsToSessions(XLSX.utils.sheet_to_json(ws));
+    }catch(e){ return []; } });
+  }
+  function importFiles(files){
+    if(!files||!files.length) return;
+    ensureXLSX().then(XLSX=>Promise.all([...files].map(f=>readOne(f,XLSX)))).then(arrs=>{
+      const map={}; arrs.flat().forEach(s=>{ if(s&&s.id) map[s.id]=s; });
+      importedCount=files.length;
+      paint(Object.values(map), true);
+    }).catch(()=>alert('Could not read one or more files. Make sure they are the report files exported by this dashboard.'));
+  }
+
+  let timer=null;
+  window.openStats=function(){ switchBlock('page:stats'); ov.style.display='block'; paint(loadAll(),false); timer=setInterval(()=>{ if(document.getElementById('stats-mine').style.display==='none') paint(loadAll(),false); },1000); };
+  window.closeStats=function(){ ov.style.display='none'; if(timer){clearInterval(timer);timer=null;} switchBlock('view:'+(window.curView||'sales')); };
+  document.getElementById('stats-close').onclick=window.closeStats;
+  document.getElementById('stats-share').onclick=shareStats;
+  document.getElementById('stats-import').onclick=()=>document.getElementById('stats-file').click();
+  document.getElementById('stats-file').onchange=e=>importFiles(e.target.files);
+  document.getElementById('stats-mine').onclick=()=>paint(loadAll(),false);
+})();
 </script>
 </body>
 </html>
